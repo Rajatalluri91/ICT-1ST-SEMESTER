@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q.5. Search Engine Notes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+            --border-color: #e0e0e0;
+            --header-bg: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            --header-text: #ffffff;
+            --shadow: 0 4px 15px rgba(0,0,0,0.08);
+
+            /* Card Accent Colors */
+            --def-card: #e3f2fd;
+            --def-border: #1e88e5;
+            --op-card: #fff8e1;
+            --op-border: #ffa000;
+            --idx-card: #e8f5e9;
+            --idx-border: #43a047;
+            --rnk-card: #f3e5f5;
+            --rnk-border: #8e24aa;
+            --ex-card: #e0f2f1;
+            --ex-border: #00897b;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --card-bg: #1e1e1e;
+            --border-color: #333333;
+            --header-bg: linear-gradient(135deg, #0a3d34 0%, #115e47 100%);
+            --header-text: #ffffff;
+            --shadow: 0 4px 15px rgba(0,0,0,0.5);
+
+            /* Dark Mode Card Backgrounds */
+            --def-card: #152738;
+            --def-border: #42a5f5;
+            --op-card: #332a15;
+            --op-border: #ffca28;
+            --idx-card: #182e1c;
+            --idx-border: #66bb6a;
+            --rnk-card: #281a2e;
+            --rnk-border: #ab47bc;
+            --ex-card: #112926;
+            --ex-border: #26a69a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Layout */
+        header {
+            background: var(--header-bg);
+            color: var(--header-text);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: left;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 1.7rem;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 1.05rem;
+            opacity: 0.95;
+        }
+
+        /* Toggle Button */
+        .toggle-container {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .theme-toggle-btn {
+            background: rgba(0, 0, 0, 0.25);
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .theme-toggle-btn:hover {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        /* Cards Layout */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 15px 25px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid #ccc;
+        }
+
+        .card-def { background-color: var(--def-card); border-left-color: var(--def-border); }
+        .card-op { background-color: var(--op-card); border-left-color: var(--op-border); }
+        .card-idx { background-color: var(--idx-card); border-left-color: var(--idx-border); }
+        .card-rnk { background-color: var(--rnk-card); border-left-color: var(--rnk-border); }
+        .card-ex { background-color: var(--ex-card); border-left-color: var(--ex-border); }
+
+        .card h2 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .eng-text {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .tel-text {
+            display: block;
+            opacity: 0.95;
+            font-size: 0.98rem;
+        }
+
+        strong {
+            color: #d32f2f;
+        }
+
+        [data-theme="dark"] strong {
+            color: #ff6b6b;
+        }
+
+        /* Image Box Container */
+        .image-box {
+            width: 100%;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.04);
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        [data-theme="dark"] .image-box {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .image-caption {
+            font-size: 0.85rem;
+            margin-top: 6px;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header {
+                padding-top: 55px;
+            }
+            .toggle-container {
+                top: 10px;
+                right: 50%;
+                transform: translateX(50%);
+            }
+            body {
+                padding: 8px;
+            }
+            .card {
+                padding: 12px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Header Section -->
+        <header>
+            <div class="toggle-container">
+                <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()">
+                    <span id="toggleIcon">🌙</span> <span id="toggleText">Dark Mode</span>
+                </button>
+            </div>
+            <h1>Q. 5. What is search engine ? How it works ?</h1>
+            <p>సెర్చ్ ఇంజన్ అంటే ఏమిటి? ఇది ఎలా పనిచేస్తుంది?</p>
+        </header>
+
+        <!-- Card 1: Definition -->
+        <div class="card card-def">
+            <h2>1. Definition / నిర్వచనం</h2>
+            <ul>
+                <li>
+                    <span class="eng-text">A <strong>Web search engine</strong> is a tool designed to search for information on the World Wide Web.</span>
+                    <span class="tel-text">వరల్డ్ వైడ్ వెబ్ (WWW) లో సమాచారాన్ని వెతకడానికి రూపొందించబడిన ఒక సాధనాన్ని <strong>'వెబ్ సెర్చ్ ఇంజన్'</strong> అంటారు.</span>
+                </li>
+                <li>
+                    <span class="eng-text">The search results are usually presented in a list and are commonly called <strong>hits</strong>.</span>
+                    <span class="tel-text">సెర్చ్ ఫలితాలు సాధారణంగా ఒక జాబితా రూపంలో కనిపిస్తాయి, వీటిని సాధారణంగా <strong>'హిట్స్' (Hits)</strong> అని పిలుస్తారు.</span>
+                </li>
+                <li>
+                    <span class="eng-text">Information may consist of <strong>web pages, images, information</strong> and other types of files.</span>
+                    <span class="tel-text">ఈ సమాచారంలో <strong>వెబ్ పేజీలు, చిత్రాలు (images)</strong>, ఇతర రకాల ఫైళ్ళు ఉంటాయి.</span>
+                </li>
+                <li>
+                    <span class="eng-text">Some search engines also mine data available in <strong>newsbooks, databases, or open directories</strong>.</span>
+                    <span class="tel-text">కొన్ని సెర్చ్ ఇంజన్లు <strong>న్యూస్ బుక్స్, డేటాబేస్‌లు లేదా ఓపెన్ డైరెక్టరీలలో</strong> అందుబాటులో ఉన్న డేటాను వెతికి తీస్తాయి.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Card 2: How it Works -->
+        <div class="card card-op">
+            <h2>2. How Search Engines Operate / పనిచేసే విధానం</h2>
+            <ul>
+                <li>
+                    <span class="eng-text">Unlike Web directories maintained by human editors, search engines operate <strong>algorithmically</strong> or are a mixture of <strong>algorithmic and human input</strong>.</span>
+                    <span class="tel-text">మానవ ఎడిటర్ల ద్వారా నిర్వహించబడే వెబ్ డైరెక్టరీల వలె కాకుండా, సెర్చ్ ఇంజన్లు <strong>అల్గోరిథమ్స్ ద్వారా</strong> లేదా అల్గోరిథమ్స్ మరియు మానవ ప్రయత్నాల కలయికతో పనిచేస్తాయి.</span>
+                </li>
+                <li>
+                    <span class="eng-text">With billions of web pages online, users follow links from one page to another to <strong>surf the Web</strong>.</span>
+                    <span class="tel-text">ఇంటర్నెట్‌లో బిలియన్ల కొద్దీ వెబ్ పేజీలు ఉన్నందున, వినియోగదారులు ఒక పేజీ నుండి మరొక పేజీకి లింక్‌లను అనుసరిస్తూ వెబ్‌ను <strong>సర్ఫింగ్ (surf)</strong> చేస్తారు.</span>
+                </li>
+            </ul>
+
+            <!-- Working Flow Diagram -->
+            <div class="image-box">
+                <svg width="320" height="70" viewBox="0 0 320 70" style="max-width: 100%;">
+                    <rect x="5" y="15" width="80" height="40" rx="5" fill="#1e88e5" opacity="0.2" stroke="#1e88e5" stroke-width="2"/>
+                    <text x="45" y="39" font-size="11" text-anchor="middle" fill="currentColor" font-weight="bold">Spiders / Bots</text>
+                    
+                    <text x="100" y="40" font-size="16" text-anchor="middle" fill="currentColor">→</text>
+
+                    <rect x="115" y="15" width="85" height="40" rx="5" fill="#43a047" opacity="0.2" stroke="#43a047" stroke-width="2"/>
+                    <text x="157" y="39" font-size="11" text-anchor="middle" fill="currentColor" font-weight="bold">Indexing Words</text>
+
+                    <text x="212" y="40" font-size="16" text-anchor="middle" fill="currentColor">→</text>
+
+                    <rect x="225" y="15" width="90" height="40" rx="5" fill="#8e24aa" opacity="0.2" stroke="#8e24aa" stroke-width="2"/>
+                    <text x="270" y="39" font-size="11" text-anchor="middle" fill="currentColor" font-weight="bold">Ranked Results</text>
+                </svg>
+                <div class="image-caption">Diagram: Working Mechanism of Search Engines</div>
+            </div>
+        </div>
+
+        <!-- Card 3: Indexing and Spiders -->
+        <div class="card card-idx">
+            <h2>3. Web Indexes & Spiders / ఇండెక్సింగ్ మరియు స్పైడర్లు</h2>
+            <ul>
+                <li>
+                    <span class="eng-text">Web indexes use software programs called <strong>spiders and robots</strong> that scour the Internet, analyzing billions of web pages and <strong>indexing all words</strong>.</span>
+                    <span class="tel-text">వెబ్ ఇండెక్స్‌లు <strong>'స్పైడర్‌లు' (Spiders)</strong> మరియు <strong>'రోబోట్‌లు' (Robots)</strong> అని పిలవబడే ప్రోటోకాల్స్ ద్వారా వెబ్ పేజీలు, బ్లాగ్‌లను విశ్లేషించి పదాలను <strong>ఇండెక్స్ (సూచిక)</strong> చేస్తాయి.</span>
+                </li>
+                <li>
+                    <span class="eng-text">Indexes like <strong>Google and MSN Search</strong> identify text on individual pages matching your search criteria.</span>
+                    <span class="tel-text"><strong>Google మరియు MSN Search</strong> వంటి ఇండెక్స్‌లు మీ శోధన పత్రాలకు సరిపోయే వెబ్‌సైట్ పేజీల వచనాన్ని గుర్తిస్తాయి.</span>
+                </li>
+                <li>
+                    <span class="eng-text">You can find <strong>unexpected gems of information</strong>, but may need to wade through <strong>irrelevant information</strong>.</span>
+                    <span class="tel-text">దీని ద్వారా మీరు విలువైన సమాచారాన్ని కనుగొనవచ్చు, కానీ అదే సమయంలో సంబంధం లేని (irrelevant) సమాచారాన్ని కూడా దాటాల్సి ఉంటుంది.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Card 4: Ranking Results -->
+        <div class="card card-rnk">
+            <h2>4. Ranking Search Results / సెర్చ్ ఫలితాల ర్యాంకింగ్</h2>
+            <ul>
+                <li>
+                    <span class="eng-text">Search results are ranked in order of <strong>relevancy</strong> - how many times a term appears or matching a concept.</span>
+                    <span class="tel-text">సెర్చ్ ఫలితాలు <strong>సంబంధం/ప్రాముఖ్యత (relevancy)</strong> ఆధారంగా - పదాలు ఎన్నిసార్లు వచ్చాయి లేదా భావన ఎంతవరకు సరిపోలిందో చూసి ర్యాంక్ చేయబడతాయి.</span>
+                </li>
+                <li>
+                    <span class="eng-text"><strong>Google</strong> is an index-based search engine providing a thorough way to locate information.</span>
+                    <span class="tel-text"><strong>Google</strong> అనేది ఇండెక్స్ ఆధారిత సెర్చ్ ఇంజన్, ఇది సమాచారాన్ని కనుగొనడానికి సమగ్రమైన మార్గాన్ని అందిస్తుంది.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Card 5: Query Examples -->
+        <div class="card card-ex">
+            <h2>5. Search Query Examples / ఉదాహరణలు</h2>
+            <ul>
+                <li>
+                    <span class="eng-text">Searching <strong>San Francisco cable cars</strong> without quotes matches each word separately, returning <strong>over 1.5 million documents</strong>.</span>
+                    <span class="tel-text">కొటేషన్లు లేకుండా <strong>San Francisco cable cars</strong> అని వెతికితే ప్రతీ పదాన్ని విడివిడిగా వెతికి <strong>1.5 మిలియన్లకు పైగా పత్రాలను</strong> చూపిస్తుంది.</span>
+                </li>
+                <li>
+                    <span class="eng-text">Using quotes <strong>("San Francisco cable cars")</strong> searches for the exact phrase, reducing results to about <strong>46,000 documents</strong>.</span>
+                    <span class="tel-text">కొటేషన్లు ఉపయోగించి <strong>("San Francisco cable cars")</strong> అని వెతికితే ఆ నిర్దిష్ట పదబంధాన్ని మాత్రమే వెతికి ఫలితాలను <strong>46,000 కు తగ్గిస్తుంది</strong>.</span>
+                </li>
+                <li>
+                    <span class="eng-text">Adding keywords like <strong>"schedule"</strong> makes the search query more focused, showing just <strong>10 sites</strong>.</span>
+                    <span class="tel-text"><strong>"schedule"</strong> వంటి కీవర్డ్స్ జోడించడం ద్వారా శోధన ఇంకా స్పష్టమై కేవలం <strong>10 సైట్‌లకు</strong> మాత్రమే సరిపోతుంది.</span>
+                </li>
+                <li>
+                    <span class="eng-text">Google smartly ranks sites based on <strong>relevancy and popularity</strong>, placing schedules on top.</span>
+                    <span class="tel-text">Google సైట్‌లను వాటి <strong>సంబంధం మరియు జనాదరణ (relevancy & popularity)</strong> ఆధారంగా ర్యాంక్ చేసి సరైన షెడ్యూల్‌లను మొదట్లోనే చూపిస్తుంది.</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- JavaScript for Dark/Light Toggle -->
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', targetTheme);
+            
+            const toggleIcon = document.getElementById('toggleIcon');
+            const toggleText = document.getElementById('toggleText');
+            
+            if (targetTheme === 'dark') {
+                toggleIcon.textContent = '☀️';
+                toggleText.textContent = 'Light Mode';
+            } else {
+                toggleIcon.textContent = '🌙';
+                toggleText.textContent = 'Dark Mode';
+            }
+        }
+    </script>
+</body>
+</html>

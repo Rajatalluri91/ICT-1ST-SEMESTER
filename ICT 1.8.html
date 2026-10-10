@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="te" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information and Communication Technology - Q.8 Web Browsers</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans Telugu', sans-serif;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-slate-900 dark:text-gray-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border-b border-gray-200 dark:border-slate-700 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div>
+                <span class="inline-block px-3 py-1 bg-sky-100 dark:bg-sky-900/60 text-sky-800 dark:text-sky-300 text-xs font-bold uppercase tracking-wider rounded-full mb-1">
+                    Information and Communication Technology
+                </span>
+                <h1 class="text-xl sm:text-2xl font-extrabold text-gray-900 dark:text-white">
+                    Q. 8. What are the various types of browsers? Explain.
+                </h1>
+            </div>
+
+            <!-- Dark / Light Mode Toggle Button -->
+            <button id="theme-toggle" aria-label="Toggle theme" class="p-2.5 rounded-xl bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-amber-400 hover:bg-gray-200 dark:hover:bg-slate-600 transition-all flex items-center justify-center">
+                <i id="theme-toggle-dark-icon" class="fa-solid fa-moon text-lg hidden"></i>
+                <i id="theme-toggle-light-icon" class="fa-solid fa-sun text-lg"></i>
+            </button>
+        </div>
+
+        <!-- Section Navigation Pills -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-3 flex space-x-2 overflow-x-auto text-sm font-medium">
+            <a href="#intro" class="px-3 py-1.5 rounded-lg bg-gray-200 dark:bg-slate-700 hover:bg-sky-500 hover:text-white dark:hover:bg-sky-600 transition">Introduction</a>
+            <a href="#desktop" class="px-3 py-1.5 rounded-lg bg-gray-200 dark:bg-slate-700 hover:bg-sky-500 hover:text-white dark:hover:bg-sky-600 transition">(A) Desktop Browsers</a>
+            <a href="#mobile" class="px-3 py-1.5 rounded-lg bg-gray-200 dark:bg-slate-700 hover:bg-sky-500 hover:text-white dark:hover:bg-sky-600 transition">(B) Mobile Browsers</a>
+            <a href="#specialized" class="px-3 py-1.5 rounded-lg bg-gray-200 dark:bg-slate-700 hover:bg-sky-500 hover:text-white dark:hover:bg-sky-600 transition">(C) Specialized Browsers</a>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full space-y-12">
+
+        <!-- Introduction Section -->
+        <section id="intro" class="bg-gradient-to-r from-sky-500 to-indigo-600 rounded-2xl p-6 sm:p-8 text-white shadow-lg">
+            <h2 class="text-2xl font-bold mb-3 flex items-center gap-3">
+                <i class="fa-solid fa-globe text-3xl"></i>
+                Web Browsers Overview
+            </h2>
+            <p class="text-sky-50 sm:text-lg leading-relaxed mb-4">
+                There are several types of web browsers, each with unique features and capabilities. Here are some of the most popular and widely used web browsers categorized into three main sections.
+            </p>
+            <p class="text-sky-100 bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+                <strong class="text-amber-300">తెలుగు వివరణ:</strong> వెబ్ బ్రౌజర్లు వినియోగదారుల అవసరాలు మరియు ఉపయోగించే పరికరాల (డెస్క్‌టాప్‌లు, మొబైల్స్, ఇతర ప్రత్యేక అవసరాలు) ఆధారంగా మూడు ముఖ్యమైన విభాగాలుగా విభజించబడ్డాయి.
+            </p>
+        </section>
+
+        <!-- (A) Desktop Browsers Section -->
+        <section id="desktop" class="scroll-mt-36">
+            <div class="flex items-center space-x-3 mb-6 pb-2 border-b-2 border-sky-500">
+                <i class="fa-solid fa-desktop text-2xl text-sky-500"></i>
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">(A) Desktop Browsers (డెస్క్‌టాప్ బ్రౌజర్లు)</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- 1. Google Chrome -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <i class="fa-brands fa-chrome text-4xl text-red-500"></i>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">1. Google Chrome</h3>
+                                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300">Developer: Google</span>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <h4 class="text-xs uppercase font-bold text-gray-400 tracking-wider">Features</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Fast performance, extensive library of extensions, integrated Google services, strong security features, frequent updates.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-700/60 bg-sky-50/50 dark:bg-slate-900/50 p-3 rounded-xl">
+                        <span class="text-xs font-bold text-sky-600 dark:text-sky-400 block mb-1">తెలుగు వివరణ:</span>
+                        <p class="text-xs text-gray-700 dark:text-gray-300">ఇది అత్యంత వేగంగా పనిచేస్తుంది, అనేక ఎక్స్‌టెన్షన్‌లను సపోర్ట్ చేస్తుంది మరియు గూగుల్ సేవలతో సులభంగా అనుసంధానమవుతుంది.</p>
+                    </div>
+                </div>
+
+                <!-- 2. Mozilla Firefox -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <i class="fa-brands fa-firefox-browser text-4xl text-orange-500"></i>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">2. Mozilla Firefox</h3>
+                                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300">Developer: Mozilla Foundation</span>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <h4 class="text-xs uppercase font-bold text-gray-400 tracking-wider">Features</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Emphasis on privacy and security, customizable with numerous extensions, open-source, regular updates, strong developer tools.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-700/60 bg-sky-50/50 dark:bg-slate-900/50 p-3 rounded-xl">
+                        <span class="text-xs font-bold text-sky-600 dark:text-sky-400 block mb-1">తెలుగు వివరణ:</span>
+                        <p class="text-xs text-gray-700 dark:text-gray-300">ఇది వినియోగదారుల గోప్యత (privacy) మరియు భద్రతకు పెద్దపీట వేస్తుంది. ఇది ఒక ఓపెన్-సోర్స్ సాఫ్ట్‌వేర్.</p>
+                    </div>
+                </div>
+
+                <!-- 3. Microsoft Edge -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <i class="fa-brands fa-edge text-4xl text-blue-500"></i>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">3. Microsoft Edge</h3>
+                                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300">Developer: Microsoft</span>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <h4 class="text-xs uppercase font-bold text-gray-400 tracking-wider">Features</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Built on Chromium engine (similar to Chrome), integrated with Windows 10/11, collections feature for organizing content, strong security features.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-700/60 bg-sky-50/50 dark:bg-slate-900/50 p-3 rounded-xl">
+                        <span class="text-xs font-bold text-sky-600 dark:text-sky-400 block mb-1">తెలుగు వివరణ:</span>
+                        <p class="text-xs text-gray-700 dark:text-gray-300">విండోస్ (Windows 10/11) ఆపరేటింగ్ సిస్టమ్‌తో కలిసి వస్తుంది. ఇది క్రోమియం ఇంజిన్‌పై ఆధారపడి పనిచేస్తుంది.</p>
+                    </div>
+                </div>
+
+                <!-- 4. Safari -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <i class="fa-brands fa-safari text-4xl text-sky-500"></i>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">4. Safari</h3>
+                                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300">Developer: Apple</span>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <h4 class="text-xs uppercase font-bold text-gray-400 tracking-wider">Features</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Optimized for macOS and iOS, energy-efficient, integrated with Apple ecosystem, strong privacy features, fast performance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-700/60 bg-sky-50/50 dark:bg-slate-900/50 p-3 rounded-xl">
+                        <span class="text-xs font-bold text-sky-600 dark:text-sky-400 block mb-1">తెలుగు వివరణ:</span>
+                        <p class="text-xs text-gray-700 dark:text-gray-300">ఇది యాపిల్ (macOS & iOS) పరికరాల కోసం ప్రత్యేకంగా రూపొందించబడింది. బ్యాటరీ వినియోగాన్ని తగ్గిస్తుంది.</p>
+                    </div>
+                </div>
+
+                <!-- 5. Opera -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <i class="fa-brands fa-opera text-4xl text-red-600"></i>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">5. Opera</h3>
+                                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300">Developer: Opera Software</span>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <h4 class="text-xs uppercase font-bold text-gray-400 tracking-wider">Features</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Built-in ad blocker, free VPN, integrated social media messengers, battery saver mode, customizable UI.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-700/60 bg-sky-50/50 dark:bg-slate-900/50 p-3 rounded-xl">
+                        <span class="text-xs font-bold text-sky-600 dark:text-sky-400 block mb-1">తెలుగు వివరణ:</span>
+                        <p class="text-xs text-gray-700 dark:text-gray-300">ఇందులో ఇన్-బిల్ట్ యాడ్ బ్లాకర్, ఫ్రీ VPN మరియు సోషల్ మీడియా మెసెంజర్లు ఉంటాయి.</p>
+                    </div>
+                </div>
+
+                <!-- 6. Brave -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <i class="fa-brands fa-brave text-4xl text-orange-600"></i>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">6. Brave</h3>
+                                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300">Developer: Brave Software</span>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <h4 class="text-xs uppercase font-bold text-gray-400 tracking-wider">Features</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Strong focus on privacy, built-in ad and tracker blocking, rewards system for viewing ads, fast performance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-700/60 bg-sky-50/50 dark:bg-slate-900/50 p-3 rounded-xl">
+                        <span class="text-xs font-bold text-sky-600 dark:text-sky-400 block mb-1">తెలుగు వివరణ:</span>
+                        <p class="text-xs text-gray-700 dark:text-gray-300">ప్రకటనలు (ads) మరియు ట్రాకర్లను అడ్డుకోవడంలో చాలా ప్రతిభావంతంగా పనిచేస్తుంది.</p>
+                    </div>
+                </div>
+
+                <!-- 7. Vivaldi -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm card-hover flex flex-col justify-between lg:col-span-1">
+                    <div>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <i class="fa-solid fa-compass text-4xl text-rose-500"></i>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">7. Vivaldi</h3>
+                                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300">Developer: Vivaldi Technologies</span>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <h4 class="text-xs uppercase font-bold text-gray-400 tracking-wider">Features</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Highly customizable interface, built on Chromium engine, advanced tab management, extensive settings and options.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-700/60 bg-sky-50/50 dark:bg-slate-900/50 p-3 rounded-xl">
+                        <span class="text-xs font-bold text-sky-600 dark:text-sky-400 block mb-1">తెలుగు వివరణ:</span>
+                        <p class="text-xs text-gray-700 dark:text-gray-300">బ్రౌజర్ లేఅవుట్‌ను మనకు నచ్చినట్లుగా మార్చుకోవడానికి (Customization) చాలా ఆప్షన్లు ఇస్తుంది.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- (B) Mobile Browsers Section -->
+        <section id="mobile" class="scroll-mt-36">
+            <div class="flex items-center space-x-3 mb-6 pb-2 border-b-2 border-emerald-500">
+                <i class="fa-solid fa-mobile-screen-button text-2xl text-emerald-500"></i>
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">(B) Mobile Browsers (మొబైల్ బ్రౌజర్లు)</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- 1. Google Chrome (iOS and Android) -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">1. Google Chrome</h3>
+                            <span class="text-xs px-2 py-1 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 font-semibold rounded-md">iOS & Android</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mb-2"><strong>Developer:</strong> Google</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300"><strong>Features:</strong> Syncs with desktop version, fast performance, extensive extension support (Android), integrated Google services.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-700 bg-emerald-50/50 dark:bg-slate-900/50 p-3 rounded-xl">
+                        <p class="text-xs text-gray-700 dark:text-gray-300"><strong class="text-emerald-600 dark:text-emerald-400">తెలుగు:</strong> డెస్క్‌టాప్ క్రోమ్‌తో డేటాను సింక్ (Sync) చేస్తుంది.</p>
+                    </div>
+                </div>
+
+                <!-- 2. Safari (iOS) -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">2. Safari</h3>
+                            <span class="text-xs px-2 py-1 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 font-semibold rounded-md">iOS</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mb-2"><strong>Developer:</strong> Apple</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300"><strong>Features:</strong> Optimized for iOS devices, integrates with Apple ecosystem, fast and energy-efficient, strong privacy features.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-700 bg-emerald-50/50 dark:bg-slate-900/50 p-3 rounded-xl">
+                        <p class="text-xs text-gray-700 dark:text-gray-300"><strong class="text-emerald-600 dark:text-emerald-400">తెలుగు:</strong> ఐఫోన్ (iPhone/iPad) వినియోగదారుల కోసం కేటాయించబడింది.</p>
+                    </div>
+                </div>
+
+                <!-- 3. Firefox (iOS and Android) -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">3. Firefox</h3>
+                            <span class="text-xs px-2 py-1 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 font-semibold rounded-md">iOS & Android</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mb-2"><strong>Developer:</strong> Mozilla Foundation</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300"><strong>Features:</strong> Syncs with desktop version, privacy-focused features, customizable with add-ons (Android), strong security.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-700 bg-emerald-50/50 dark:bg-slate-900/50 p-3 rounded-xl">
+                        <p class="text-xs text-gray-700 dark:text-gray-300"><strong class="text-emerald-600 dark:text-emerald-400">తెలుగు:</strong> మొబైల్‌లో కూడా వినియోగదారుల గోప్యతను కాపాడుతుంది.</p>
+                    </div>
+                </div>
+
+                <!-- 4. Microsoft Edge (iOS and Android) -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">4. Microsoft Edge</h3>
+                            <span class="text-xs px-2 py-1 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 font-semibold rounded-md">iOS & Android</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mb-2"><strong>Developer:</strong> Microsoft</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300"><strong>Features:</strong> Syncs with desktop version, built-in features like collections and reading mode, strong security.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-700 bg-emerald-50/50 dark:bg-slate-900/50 p-3 rounded-xl">
+                        <p class="text-xs text-gray-700 dark:text-gray-300"><strong class="text-emerald-600 dark:text-emerald-400">తెలుగు:</strong> PCలోని ఎడ్జ్ బ్రౌజర్‌తో సులభంగా అనుసంధానమవుతుంది.</p>
+                    </div>
+                </div>
+
+                <!-- 5. Opera Mobile (iOS and Android) -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">5. Opera Mobile</h3>
+                            <span class="text-xs px-2 py-1 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 font-semibold rounded-md">iOS & Android</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mb-2"><strong>Developer:</strong> Opera Software</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300"><strong>Features:</strong> Built-in ad blocker, free VPN, data saver mode, customizable UI, integrated social media messengers.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-700 bg-emerald-50/50 dark:bg-slate-900/50 p-3 rounded-xl">
+                        <p class="text-xs text-gray-700 dark:text-gray-300"><strong class="text-emerald-600 dark:text-emerald-400">తెలుగు:</strong> డేటా ఆదా చేసే 'Data Saver' ఆప్షన్ కలిగి ఉంటుంది.</p>
+                    </div>
+                </div>
+
+                <!-- 6. Brave (iOS and Android) -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">6. Brave</h3>
+                            <span class="text-xs px-2 py-1 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 font-semibold rounded-md">iOS & Android</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mb-2"><strong>Developer:</strong> Brave Software</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300"><strong>Features:</strong> Strong privacy focus, built-in ad and tracker blocking, rewards system for viewing ads, fast performance.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-700 bg-emerald-50/50 dark:bg-slate-900/50 p-3 rounded-xl">
+                        <p class="text-xs text-gray-700 dark:text-gray-300"><strong class="text-emerald-600 dark:text-emerald-400">తెలుగు:</strong> మొబైల్‌లో వేగవంతమైన మరియు సురక్షితమైన అనుభవాన్ని ఇస్తుంది.</p>
+                    </div>
+                </div>
+
+                <!-- 7. Samsung Internet (Android) -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm card-hover flex flex-col justify-between lg:col-span-1">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">7. Samsung Internet</h3>
+                            <span class="text-xs px-2 py-1 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 font-semibold rounded-md">Android</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mb-2"><strong>Developer:</strong> Samsung</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300"><strong>Features:</strong> Optimized for Samsung devices, built-in ad blocker, extensions support, customizable UI, integration with Samsung services.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-700 bg-emerald-50/50 dark:bg-slate-900/50 p-3 rounded-xl">
+                        <p class="text-xs text-gray-700 dark:text-gray-300"><strong class="text-emerald-600 dark:text-emerald-400">తెలుగు:</strong> శామ్‌సంగ్ పరికరాలకు ప్రత్యేకంగా రూపొందించబడింది.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- (C) Lesser-Known and Specialized Browsers Section -->
+        <section id="specialized" class="scroll-mt-36">
+            <div class="flex items-center space-x-3 mb-6 pb-2 border-b-2 border-purple-500">
+                <i class="fa-solid fa-user-shield text-2xl text-purple-500"></i>
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">(C) Lesser-Known and Specialized Browsers (ప్రత్యేకమైన బ్రౌజర్లు)</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- 1. Tor Browser -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <i class="fa-solid fa-mask text-4xl text-purple-600"></i>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">1. Tor Browser</h3>
+                                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300">Developer: The Tor Project</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-3"><strong>Features:</strong> Strong focus on anonymity and privacy, routes traffic through the Tor network, useful for accessing the dark web.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-700 bg-purple-50/50 dark:bg-slate-900/50 p-3 rounded-xl">
+                        <span class="text-xs font-bold text-purple-600 dark:text-purple-400 block mb-1">తెలుగు వివరణ:</span>
+                        <p class="text-xs text-gray-700 dark:text-gray-300">ఇది వినియోగదారు గుర్తింపును పూర్తిగా దాచిపెడుతుంది (Anonymity). టోర్ నెట్‌వర్క్ ద్వారా సమాచారాన్ని పంపుతుంది.</p>
+                    </div>
+                </div>
+
+                <!-- 2. Epic Privacy Browser -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <i class="fa-solid fa-user-secret text-4xl text-indigo-500"></i>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">2. Epic Privacy Browser</h3>
+                                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300">Developer: Hidden Reflex</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-3"><strong>Features:</strong> Emphasis on privacy, built-in proxy and VPN, blocks trackers and ads, does not save browsing history.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-700 bg-purple-50/50 dark:bg-slate-900/50 p-3 rounded-xl">
+                        <span class="text-xs font-bold text-purple-600 dark:text-purple-400 block mb-1">తెలుగు వివరణ:</span>
+                        <p class="text-xs text-gray-700 dark:text-gray-300">ఇది బ్రౌజింగ్ హిస్టరీని అస్సలు సేవ్ చేయదు మరియు VPNని కూడా కలిగి ఉంటుంది.</p>
+                    </div>
+                </div>
+
+                <!-- 3. Maxthon -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <i class="fa-solid fa-cloud text-4xl text-sky-400"></i>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">3. Maxthon</h3>
+                                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300">Developer: Maxthon Ltd.</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-3"><strong>Features:</strong> Cloud-based synchronization, built-in ad blocker, dual rendering engines (Trident and WebKit), customizable UI.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-700 bg-purple-50/50 dark:bg-slate-900/50 p-3 rounded-xl">
+                        <span class="text-xs font-bold text-purple-600 dark:text-purple-400 block mb-1">తెలుగు వివరణ:</span>
+                        <p class="text-xs text-gray-700 dark:text-gray-300">క్లౌడ్ ద్వారా డేటాను సింక్ చేయడానికి మరియు వేగంగా పనిచేయడానికి రెండు ఇంజిన్‌లను ఉపయోగిస్తుంది.</p>
+                    </div>
+                </div>
+
+                <!-- 4. UC Browser -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <i class="fa-solid fa-bolt text-4xl text-amber-500"></i>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">4. UC Browser</h3>
+                                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300">Developer: UCWeb (Alibaba Group)</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-3"><strong>Features:</strong> Data compression, fast browsing, integrated with UCWeb's cloud services, built-in ad blocker.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-700 bg-purple-50/50 dark:bg-slate-900/50 p-3 rounded-xl">
+                        <span class="text-xs font-bold text-purple-600 dark:text-purple-400 block mb-1">తెలుగు వివరణ:</span>
+                        <p class="text-xs text-gray-700 dark:text-gray-300">ఇది డేటాను కుదించి (compress) తక్కువ నెట్‌వర్క్‌లో కూడా వేగంగా వెబ్‌పేజీలను లోడ్ చేస్తుంది.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Summary Banner -->
+        <section class="bg-slate-100 dark:bg-slate-800/80 rounded-2xl p-6 border border-gray-200 dark:border-slate-700 text-center">
+            <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 italic">
+                "These browsers cater to different user needs and preferences, offering a variety of features related to speed, security, privacy, customization, and integration with other services."
+            </p>
+            <p class="text-xs sm:text-sm text-sky-600 dark:text-sky-400 font-semibold mt-2">
+                ఈ బ్రౌజర్లు వినియోగదారుల విభిన్న అవసరాలకు అనుగుణంగా వేగం, భద్రత, గోప్యత వంటి అనుకూలమైన ఫీచర్లను అందిస్తాయి.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-800 border-t border-gray-200 dark:border-slate-700 py-6 text-center text-xs text-gray-500 dark:text-gray-400">
+        <p>Information and Communication Technology (ICT) • Study Notes</p>
+    </footer>
+
+    <!-- Dark / Light Theme Toggle Script -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // Initial Icon Setup based on dark class
+        if (document.documentElement.classList.contains('dark')) {
+            lightIcon.classList.remove('hidden');
+            darkIcon.classList.add('hidden');
+        } else {
+            darkIcon.classList.remove('hidden');
+            lightIcon.classList.add('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="te" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICT Study Guide - Web Browsers & Navigation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans Telugu', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', 'Noto Sans Telugu', sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(156, 163, 175, 0.5);
+      border-radius: 9999px;
+    }
+    .glass-effect {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen pb-16 custom-scrollbar">
+
+  <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 glass-effect border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="p-2.5 bg-brand-600 text-white rounded-xl shadow-md shadow-brand-500/20">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+        </div>
+        <div>
+          <h1 class="text-xl sm:text-2xl font-bold bg-gradient-to-r from-brand-600 to-indigo-600 dark:from-brand-500 dark:to-indigo-400 bg-clip-text text-transparent">
+            ICT Study Material
+          </h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Information and Communication Technology</p>
+        </div>
+      </div>
+
+      <!-- Day / Dark Toggle -->
+      <button id="themeToggle" onclick="toggleTheme()" class="relative inline-flex items-center justify-between w-16 h-8 p-1 rounded-full bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500" aria-label="Toggle Theme">
+        <span class="sr-only">Toggle Dark Mode</span>
+        <svg class="w-5 h-5 text-amber-500 z-10" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" clip-rule="evenodd"></path>
+        </svg>
+        <svg class="w-5 h-5 text-indigo-400 z-10" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+        </svg>
+        <span id="themeIndicator" class="absolute top-1 left-1 w-6 h-6 rounded-full bg-white dark:bg-slate-900 shadow-md transform transition-transform duration-300 dark:translate-x-8"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 space-y-8">
+    
+    <!-- Popular Search Engines Card -->
+    <section class="bg-white dark:bg-slate-800/90 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80 dark:border-slate-700/80 transition-all hover:shadow-md">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="p-3 bg-indigo-50 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 rounded-xl">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-slate-900 dark:text-white">Popular Search Engines</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400">ప్రసిద్ధ శోధన యంత్రాలు</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="p-4 bg-slate-50 dark:bg-slate-900/60 rounded-xl border border-slate-200/60 dark:border-slate-700/60 flex items-center gap-3">
+          <span class="p-2 bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 rounded-lg text-xs font-bold">01</span>
+          <div>
+            <h3 class="font-semibold text-slate-900 dark:text-white text-sm">AOL Netfind</h3>
+            <a href="http://www.aol.com/netfind" target="_blank" class="text-xs text-brand-600 dark:text-brand-400 hover:underline">www.aol.com/netfind</a>
+          </div>
+        </div>
+
+        <div class="p-4 bg-slate-50 dark:bg-slate-900/60 rounded-xl border border-slate-200/60 dark:border-slate-700/60 flex items-center gap-3">
+          <span class="p-2 bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 rounded-lg text-xs font-bold">02</span>
+          <div>
+            <h3 class="font-semibold text-slate-900 dark:text-white text-sm">Alta Vista</h3>
+            <span class="text-xs text-brand-600 dark:text-brand-400">altavista.digital.com</span>
+          </div>
+        </div>
+
+        <div class="p-4 bg-slate-50 dark:bg-slate-900/60 rounded-xl border border-slate-200/60 dark:border-slate-700/60 flex items-center gap-3">
+          <span class="p-2 bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 rounded-lg text-xs font-bold">03</span>
+          <div>
+            <h3 class="font-semibold text-slate-900 dark:text-white text-sm">WebCrawler</h3>
+            <a href="http://www.webCrawler.com" target="_blank" class="text-xs text-brand-600 dark:text-brand-400 hover:underline">www.webCrawler.com</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Concept Note -->
+      <div class="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200/60 dark:border-amber-800/50 flex gap-3">
+        <svg class="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <div class="text-sm space-y-2">
+          <p class="text-slate-700 dark:text-slate-300">
+            <strong class="text-slate-900 dark:text-white">Note:</strong> The distinction between directories and search engines may become blurred overtime and a new hybrid category called <span class="font-semibold text-amber-700 dark:text-amber-300">"direct search"</span> or something similar may be necessary to classify the new search tool.
+          </p>
+          <p class="text-slate-600 dark:text-slate-400 border-t border-amber-200/50 dark:border-amber-800/40 pt-2">
+            <strong class="text-slate-800 dark:text-slate-200">గమనిక:</strong> కాలక్రమేణా డైరెక్టరీలు మరియు సెర్చ్ ఇంజిన్‌ల మధ్య వ్యత్యాసం అస్పష్టంగా మారింది. కొత్త సెర్చ్ టూల్స్‌ను వర్గీకరించడానికి <strong>"Direct Search"</strong> లేదా అటువంటి హైబ్రిడ్ విధానం అవసరమైంది.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Q.7 Section Header -->
+    <div class="relative bg-gradient-to-r from-brand-600 to-indigo-700 dark:from-brand-800 dark:to-indigo-900 text-white rounded-2xl p-6 sm:p-8 shadow-lg overflow-hidden">
+      <div class="absolute -right-6 -bottom-6 opacity-10">
+        <svg class="w-64 h-64" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"></path>
+        </svg>
+      </div>
+      <div class="relative z-10 space-y-2">
+        <span class="px-3 py-1 bg-white/20 text-white rounded-full text-xs font-bold uppercase tracking-wider">Question 7</span>
+        <h2 class="text-2xl sm:text-3xl font-bold">What is a browser? Explain its operation.</h2>
+        <p class="text-brand-100 text-base font-medium">వెబ్ బ్రౌజర్ అంటే ఏమిటి? దాని పనితీరును వివరించండి.</p>
+      </div>
+    </div>
+
+    <!-- Browser Definition & History -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Definition -->
+      <div class="bg-white dark:bg-slate-800/90 rounded-2xl p-6 shadow-sm border border-slate-200/80 dark:border-slate-700/80 space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="p-2.5 bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 rounded-xl">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-slate-900 dark:text-white text-lg">Browser Definition</h3>
+        </div>
+        <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+          A web browser is the software program you use to access the <strong>World Wide Web</strong>, the graphical portion of the Internet.
+        </p>
+        <div class="pt-3 border-t border-slate-100 dark:border-slate-700/60">
+          <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+            <strong>తెలుగు వివరణ:</strong> వెబ్ బ్రౌజర్ అనేది ఇంటర్నెట్ లోని గ్రాఫికల్ భాగమైన <strong>World Wide Web (WWW)</strong> ను ఓపెన్ చేయడానికి మరియు చూడటానికి ఉపయోగించే ఒక సాఫ్ట్‌వేర్ ప్రోగ్రామ్.
+          </p>
+        </div>
+      </div>
+
+      <!-- History -->
+      <div class="bg-white dark:bg-slate-800/90 rounded-2xl p-6 shadow-sm border border-slate-200/80 dark:border-slate-700/80 space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="p-2.5 bg-purple-50 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 rounded-xl">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-slate-900 dark:text-white text-lg">History & First Browser</h3>
+        </div>
+        <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+          The first browser, called <strong>NCSA Mosaic</strong>, was developed at the National Center for Supercomputing Applications in the early 1990s. The easy-to-use point-and-click interface helped popularize the Web.
+        </p>
+        <div class="pt-3 border-t border-slate-100 dark:border-slate-700/60">
+          <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+            <strong>చరిత్ర:</strong> మొదటి వెబ్ బ్రౌజర్‌ను <strong>NCSA Mosaic</strong> అంటారు. దీనిని 1990ల ప్రారంభంలో తయారు చేశారు. దీని పాయింట్-అండ్-క్లిక్ విధానం ఇంటర్నెట్‌ను చాలా ప్రాచుర్యం పొందేలా చేసింది.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- How Browser Operates: Homepage & Loading/Hypertext -->
+    <div class="bg-white dark:bg-slate-800/90 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80 dark:border-slate-700/80 space-y-6">
+      <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+        <span class="p-2 bg-emerald-50 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 rounded-xl">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+          </svg>
+        </span>
+        Browser Operation & Execution Steps
+      </h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Homepage Execution -->
+        <div class="p-5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-700/60 space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-brand-600 dark:text-brand-400">1. Homepage Operations</h4>
+            <span class="text-xs px-2.5 py-1 bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 rounded-full font-semibold">Step 1</span>
+          </div>
+          <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+            When you first open the web browser, it automatically loads a <strong>"homepage"</strong> – usually that of the browser's manufacturer (e.g., <em>Internet Explorer</em> will load the <em>MSN</em> homepage).
+          </p>
+          <div class="p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 text-xs space-y-1">
+            <strong class="text-slate-900 dark:text-white">How to change homepage:</strong>
+            <p class="text-slate-600 dark:text-slate-400">Browse to preferred page &rarr; Go to "View" &rarr; "Internet Options" &rarr; Select "Use Current" button.</p>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-400 pt-1">
+            <strong>తెలుగు:</strong> బ్రౌజర్ ఓపెన్ చేసినప్పుడు మొదటగా వచ్చే పేజీని "Homepage" అంటారు. దీనిని మనకు కావలసిన వెబ్‌సైట్‌కి "View &rarr; Internet Options &rarr; Use Current" ద్వారా మార్చుకోవచ్చు.
+          </p>
+        </div>
+
+        <!-- Hypertext & Surfing -->
+        <div class="p-5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-700/60 space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-brand-600 dark:text-brand-400">2. Loading & Hypertext</h4>
+            <span class="text-xs px-2.5 py-1 bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 rounded-full font-semibold">Step 2</span>
+          </div>
+          <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+            As a page "loads", text and pictures arrive. Underlined text in different colors is <strong>hypertext</strong>. Moving the mouse arrow over a link/picture changes the pointer to a <strong>hand icon</strong>.
+          </p>
+          <div class="p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 text-xs text-slate-600 dark:text-slate-400">
+            Clicking hypertext links to jump between pages is called <strong class="text-brand-600 dark:text-brand-400">"browsing"</strong> or <strong class="text-brand-600 dark:text-brand-400">"surfing the web"</strong>.
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-400 pt-1">
+            <strong>తెలుగు:</strong> వెబ్‌పేజీలోని వేరే రంగులో క్రింద గీత ఉన్న పదాలను <strong>Hypertext</strong> అంటారు. వీటిపైకి మౌస్ తీసుకెళ్తే చేతి గుర్తు (Hand Icon) వస్తుంది. క్లిక్ చేసి పేజీలు మారడాన్ని "Surfing" అంటారు.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Getting Around the Web - Browser Toolbar -->
+    <section class="bg-white dark:bg-slate-800/90 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80 dark:border-slate-700/80 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <span class="p-2 bg-sky-50 dark:bg-sky-900/40 text-sky-600 dark:text-sky-400 rounded-xl">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </span>
+            Getting Around the Web - Browser Toolbar
+          </h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+            The toolbar is essential for navigation and frequently performed functions. (8 Main Functions)
+          </p>
+        </div>
+      </div>
+
+      <!-- 8 Toolbar Functions Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- 1. Back -->
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-700/60 space-y-2 hover:border-brand-500/50 transition-colors">
+          <div class="flex items-center gap-2 text-brand-600 dark:text-brand-400 font-bold">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            <span>(1) Back</span>
+          </div>
+          <p class="text-xs text-slate-700 dark:text-slate-300 font-medium">Returns you to the previous page.</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 pt-1 border-t border-slate-200/60 dark:border-slate-800">
+            అంతకుముందు చూసిన పేజీకి వెళ్తుంది.
+          </p>
+        </div>
+
+        <!-- 2. Forward -->
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-700/60 space-y-2 hover:border-brand-500/50 transition-colors">
+          <div class="flex items-center gap-2 text-brand-600 dark:text-brand-400 font-bold">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+            <span>(2) Forward</span>
+          </div>
+          <p class="text-xs text-slate-700 dark:text-slate-300 font-medium">Goes forward again after going back a few pages.</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 pt-1 border-t border-slate-200/60 dark:border-slate-800">
+            మళ్లీ ముందు చూసిన పేజీలకు వెళ్తుంది.
+          </p>
+        </div>
+
+        <!-- 3. Stop -->
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-700/60 space-y-2 hover:border-brand-500/50 transition-colors">
+          <div class="flex items-center gap-2 text-rose-600 dark:text-rose-400 font-bold">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+            <span>(3) Stop</span>
+          </div>
+          <p class="text-xs text-slate-700 dark:text-slate-300 font-medium">Stops loading a page (useful for very large files).</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 pt-1 border-t border-slate-200/60 dark:border-slate-800">
+            పేజీ లోడింగ్‌ను నిలుపుదల చేస్తుంది.
+          </p>
+        </div>
+
+        <!-- 4. Refresh -->
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-700/60 space-y-2 hover:border-brand-500/50 transition-colors">
+          <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+            </svg>
+            <span>(4) Refresh</span>
+          </div>
+          <p class="text-xs text-slate-700 dark:text-slate-300 font-medium">Reloads requested page, ignores local cache (<kbd class="px-1 py-0.5 bg-slate-200 dark:bg-slate-700 rounded text-[10px]">Ctrl + Refresh</kbd>).</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 pt-1 border-t border-slate-200/60 dark:border-slate-800">
+            పేజీని తిరిగి రీలోడ్ చేస్తుంది.
+          </p>
+        </div>
+
+        <!-- 5. Home -->
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-700/60 space-y-2 hover:border-brand-500/50 transition-colors">
+          <div class="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-bold">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            <span>(5) Home</span>
+          </div>
+          <p class="text-xs text-slate-700 dark:text-slate-300 font-medium">Returns you to the homepage.</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 pt-1 border-t border-slate-200/60 dark:border-slate-800">
+            మళ్లీ హోమ్‌పేజీకి తీసుకెళ్తుంది.
+          </p>
+        </div>
+
+        <!-- 6. Search -->
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-700/60 space-y-2 hover:border-brand-500/50 transition-colors">
+          <div class="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-bold">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+            <span>(6) Search</span>
+          </div>
+          <p class="text-xs text-slate-700 dark:text-slate-300 font-medium">Links you to a search engine.</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 pt-1 border-t border-slate-200/60 dark:border-slate-800">
+            సెర్చ్ ఇంజిన్‌కు కనెక్ట్ చేస్తుంది.
+          </p>
+        </div>
+
+        <!-- 7. Favourites -->
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-700/60 space-y-2 hover:border-brand-500/50 transition-colors">
+          <div class="flex items-center gap-2 text-yellow-600 dark:text-yellow-400 font-bold">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+            </svg>
+            <span>(7) Favourites</span>
+          </div>
+          <p class="text-xs text-slate-700 dark:text-slate-300 font-medium">List sites visited & bookmarked to return later.</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 pt-1 border-t border-slate-200/60 dark:border-slate-800">
+            సేవ్/బుక్‌మార్క్ చేసుకున్న సైట్ల జాబితా.
+          </p>
+        </div>
+
+        <!-- 8. History -->
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-700/60 space-y-2 hover:border-brand-500/50 transition-colors">
+          <div class="flex items-center gap-2 text-purple-600 dark:text-purple-400 font-bold">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span>(8) History</span>
+          </div>
+          <p class="text-xs text-slate-700 dark:text-slate-300 font-medium">Records visited sites by day, week, month.</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 pt-1 border-t border-slate-200/60 dark:border-slate-800">
+            గతంలో చూసిన సైట్ల రికార్డును భద్రపరుస్తుంది.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Address Bar, Address Panel, Caching & SSL -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Address Bar & Panel -->
+      <div class="bg-white dark:bg-slate-800/90 rounded-2xl p-6 shadow-sm border border-slate-200/80 dark:border-slate-700/80 space-y-5">
+        <div class="flex items-center gap-3">
+          <div class="p-2.5 bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 rounded-xl">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900 dark:text-white text-lg">The Address Bar & Panel</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">అడ్రస్ బార్ మరియు ప్యానెల్</p>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="p-3 bg-slate-100 dark:bg-slate-900 rounded-lg flex items-center gap-2 border border-slate-300 dark:border-slate-700 font-mono text-xs">
+            <span class="text-slate-500">Address</span>
+            <span class="text-brand-600 dark:text-brand-400 font-semibold">http://www.dynamicwebs.com.au/tutorials/</span>
+          </div>
+
+          <ul class="text-xs space-y-2 text-slate-700 dark:text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-brand-500 font-bold">•</span>
+              <span><strong>URL (Uniform Resource Locator):</strong> Simply the address of a web page. Leave <code class="px-1 py-0.5 bg-slate-200 dark:bg-slate-700 rounded">http://</code> at start as it tells browser to use Hypertext Transfer Protocol.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-500 font-bold">•</span>
+              <span><strong>Address Panel Indicators:</strong> Top right wavy window shows browser searching; bottom right green status bar shows load percentage.</span>
+            </li>
+          </ul>
+
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-700/60 text-xs text-slate-600 dark:text-slate-400">
+            <strong>తెలుగు:</strong> URL అనేది ఒక వెబ్‌పేజీ యొక్క అడ్రస్. ముందు ఉండే <code class="px-1 bg-slate-200 dark:bg-slate-700 rounded">http://</code> బ్రౌజర్‌కు ప్రోటోకాల్‌ను తెలియజేస్తుంది. ప్యానెల్‌లోని ప్రాగ్రెస్ బార్ లోడింగ్ శాతాన్ని చూపిస్తుంది.
+          </div>
+        </div>
+      </div>
+
+      <!-- Caching & SSL Security -->
+      <div class="bg-white dark:bg-slate-800/90 rounded-2xl p-6 shadow-sm border border-slate-200/80 dark:border-slate-700/80 space-y-5">
+        <!-- Caching -->
+        <div class="space-y-2">
+          <div class="flex items-center gap-3">
+            <div class="p-2 bg-amber-50 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 rounded-lg">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 dark:text-white text-base">Caching (Temporary Files)</h4>
+            </div>
+          </div>
+          <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+            Saves requested HTML files & images locally ("Temporary Internet Files") to speed up future loading on local machine and ISP servers.
+          </p>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            <strong>తెలుగు:</strong> వెబ్‌పేజీల HTML ఫైల్స్ మరియు ఇమేజ్‌లను లోకల్‌గా దాచడాన్ని "Caching" అంటారు. దీనివల్ల తర్వాత పేజీ వేగంగా రీలోడ్ అవుతుంది.
+          </p>
+        </div>
+
+        <hr class="border-slate-200 dark:border-slate-700/60">
+
+        <!-- SSL Security -->
+        <div class="space-y-2">
+          <div class="flex items-center gap-3">
+            <div class="p-2 bg-emerald-50 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 rounded-lg">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 dark:text-white text-base">SSL (Secure Sockets Layer)</h4>
+            </div>
+          </div>
+          <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+            A little <strong>padlock icon</strong> on the status bar indicates a "secure server". Safely transfers sensitive info (credit card details, account login).
+          </p>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            <strong>తెలుగు:</strong> స్థితి బార్‌లో లాక్ (Padlock) గుర్తు కనిపిస్తే ఆ వెబ్‌సైట్ సురక్షితమైనది (Secure Server) అని అర్థం. రహస్య సమాచారం సురక్షితంగా మార్పిడి అవుతుంది.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    // Theme Switch Logic
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      html.setAttribute('data-theme', newTheme);
+      
+      if (newTheme === 'dark') {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    // Initialize Theme On Load
+    (function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
+</body>
+</html>

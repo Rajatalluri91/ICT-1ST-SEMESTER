@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICT Standard Study Material (Q.19 to Q.29)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f1f5f9;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+            --border-color: #cbd5e1;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+            --sub-bg: #f8fafc;
+            --highlight: #2563eb;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --card-bg: #1e293b;
+            --border-color: #334155;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+            --sub-bg: #0f172a;
+            --highlight: #38bdf8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 10px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto 30px auto;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            color: var(--highlight);
+        }
+
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 28px;
+            position: relative;
+            width: 54px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: #94a3b8;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            background-color: white;
+            bottom: 3px;
+            content: "";
+            height: 22px;
+            left: 3px;
+            position: absolute;
+            transition: .4s;
+            width: 22px;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #2563eb;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 10px;
+            box-shadow: var(--shadow);
+            border-top: 8px solid #2563eb;
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Platform specific colors */
+        .card.q19 { border-top-color: #1DA1F2; } /* Twitter */
+        .card.q20 { border-top-color: #0A66C2; } /* LinkedIn */
+        .card.q21 { border-top-color: #7C3AED; } /* Tumblr */
+        .card.q22 { border-top-color: #1877F2; } /* Facebook */
+        .card.q23 { border-top-color: #EC4899; } /* Flickr */
+        .card.q24 { border-top-color: #00AFF0; } /* Skype */
+        .card.q25 { border-top-color: #6001D2; } /* Yahoo */
+        .card.q26 { border-top-color: #DD4B39; } /* Google+ */
+        .card.q27 { border-top-color: #EA4335; } /* Google+ Steps */
+        .card.q28 { border-top-color: #FF0000; } /* YouTube */
+        .card.q29 { border-top-color: #25D366; } /* WhatsApp */
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card-header img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .card-title h2 {
+            font-size: 1.4rem;
+            line-height: 1.4;
+        }
+
+        .intro-box {
+            background-color: var(--sub-bg);
+            padding: 16px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--highlight);
+        }
+
+        .features-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 20px 0 12px 0;
+            color: var(--highlight);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        ul.points-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        ul.points-list li {
+            background-color: var(--sub-bg);
+            padding: 14px 18px;
+            border-radius: 8px;
+            border-left: 4px solid transparent;
+        }
+
+        .card.q19 ul.points-list li { border-left-color: #1DA1F2; }
+        .card.q20 ul.points-list li { border-left-color: #0A66C2; }
+        .card.q21 ul.points-list li { border-left-color: #7C3AED; }
+        .card.q22 ul.points-list li { border-left-color: #1877F2; }
+        .card.q23 ul.points-list li { border-left-color: #EC4899; }
+        .card.q24 ul.points-list li { border-left-color: #00AFF0; }
+        .card.q25 ul.points-list li { border-left-color: #6001D2; }
+        .card.q26 ul.points-list li { border-left-color: #DD4B39; }
+        .card.q27 ul.points-list li { border-left-color: #EA4335; }
+        .card.q28 ul.points-list li { border-left-color: #FF0000; }
+        .card.q29 ul.points-list li { border-left-color: #25D366; }
+
+        .en-text {
+            display: block;
+            font-size: 0.98rem;
+            margin-bottom: 6px;
+        }
+
+        .te-text {
+            display: block;
+            font-family: 'Mandali', sans-serif;
+            font-size: 1.02rem;
+            color: var(--text-color);
+            opacity: 0.95;
+        }
+
+        strong {
+            font-weight: 700;
+            color: var(--highlight);
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .card-header { flex-direction: column; align-items: flex-start; }
+            .card-header img { width: 100%; height: 120px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>ICT Study Material</h1>
+        <div class="theme-switch-wrapper">
+            <span></span>
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider"></div>
+            </label>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Q19: Twitter -->
+        <div class="card q19">
+            <div class="card-header">
+                <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?auto=format&fit=crop&w=300&q=80" alt="Twitter">
+                <div class="card-title">
+                    <h2>Q.19. What is Twitter? Explain its features.</h2>
+                </div>
+            </div>
+            
+            <div class="intro-box">
+                <p><span class="en-text">Twitter is perhaps the <strong>simplest and most interesting social media platform</strong>. It allows users to post short text messages, share images or links, and interact with friends, celebrities, or influencers. The user interface is very easy to navigate, and setting up a profile takes only a few minutes.</span></p>
+                <p><span class="te-text">ట్విట్టర్ అనేది అత్యంత <strong>సులువైన మరియు ప్రముఖమైన సోషల్ మీడియా ప్లాట్‌ఫారమ్</strong>. దీని ద్వారా వినియోగదారులు చిన్న సందేశాలు, లింక్‌లు, ఫోటోలు పోస్ట్ చేయవచ్చు మరియు ప్రముఖులు లేదా స్నేహితులతో అభిప్రాయాలను పంచుకోవచ్చు. దీని ప్రొఫైల్ క్రియేషన్ చాలా వేగంగా పూర్తవుతుంది.</span></p>
+            </div>
+
+            <div class="features-title">Features / ముఖ్య లక్షణాలు:</div>
+            <ul class="points-list">
+                <li>
+                    <span class="en-text">1. Allows users to send and read short status updates known as <strong>"tweets"</strong>.</span>
+                    <span class="te-text">1. వినియోగదారులు పంపే మరియు చదివే సందేశాలను <strong>"ట్వీట్లు (Tweets)"</strong> అని పిలుస్తారు.</span>
+                </li>
+                <li>
+                    <span class="en-text">2. Messages are strictly restricted to <strong>140 characters or less</strong>, a concept called <strong>microblogging</strong>.</span>
+                    <span class="te-text">2. సందేశాలు గరిష్టంగా <strong>140 అక్షరాలకు (Characters)</strong> మాత్రమే పరిమితం, దీనిని <strong>మైక్రోబ్లాగింగ్</strong> అంటారు.</span>
+                </li>
+                <li>
+                    <span class="en-text">3. Updates can be sent and received via the <strong>Twitter website, SMS, RSS feeds, email, or third-party applications</strong>.</span>
+                    <span class="te-text">3. వెబ్‌సైట్, <strong>SMS, RSS ఫీడ్‌లు, ఇమెయిల్ లేదా థర్డ్-పార్టీ యాప్‌ల</strong> ద్వారా సందేశాలు పంపవచ్చు మరియు పొందవచ్చు.</span>
+                </li>
+                <li>
+                    <span class="en-text">4. Users can <strong>restrict message delivery</strong> to a selected circle of friends, though public delivery is default.</span>
+                    <span class="te-text">4. మీ పోస్ట్‌లను అందరికీ కాకుండా కేవలం మీ <strong>స్నేహితుల పరిధికి మాత్రమే కనిపించేలా (Privacy Settings)</strong> మార్చుకోవచ్చు.</span>
+                </li>
+                <li>
+                    <span class="en-text">5. Supports external third-party apps such as <strong>Tweetie, Twitterrific, and Feedalizer</strong> to manage tweets.</span>
+                    <span class="te-text">5. ట్విట్టర్ మెసేజ్‌లను పంపడానికి <strong>Tweetie, Twitterrific, Feedalizer</strong> వంటి బాహ్య అప్లికేషన్లను ఉపయోగించవచ్చు.</span>
+                </li>
+                <li>
+                    <span class="en-text">6. Offers tools to search people by <strong>name or username</strong>, import friend lists from other networks, or send email invitations.</span>
+                    <span class="te-text">6. పేరు లేదా <strong>యూజర్‌నేమ్‌తో వ్యక్తులను వెతకవచ్చు</strong>, ఇతర నెట్‌వర్క్‌ల నుండి కాంటాక్ట్‌లను ఇంపోర్ట్ చేయవచ్చు.</span>
+                </li>
+                <li>
+                    <span class="en-text">7. Simple registration process through the <strong>Twitter sign-up page</strong> to start tweeting immediately.</span>
+                    <span class="te-text">7. ట్విట్టర్ <strong>సైన్-అప్ పేజీలో నమోదు చేసుకుని</strong> వెంటనే ట్వీట్లు చేయడం ప్రారంభించవచ్చు.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Q20: LinkedIn -->
+        <div class="card q20">
+            <div class="card-header">
+                <img src="https://images.unsplash.com/photo-1611944212129-29977ae1398c?auto=format&fit=crop&w=300&q=80" alt="LinkedIn">
+                <div class="card-title">
+                    <h2>Q.20. What is LinkedIn? Explain its features.</h2>
+                </div>
+            </div>
+
+            <div class="intro-box">
+                <p><span class="en-text">LinkedIn is a dedicated <strong>social network for professionals</strong>. It is designed to help users build corporate connections, advance their careers, post or apply for jobs, and publish work-related articles. User profiles resemble a <strong>comprehensive digital resume</strong>.</span></p>
+                <p><span class="te-text">లింక్డ్ఇన్ అనేది <strong>ఉద్యోగులు మరియు ప్రొఫెషనల్స్ కోసం రూపొందించిన సోషల్ నెట్‌వర్క్</strong>. ఇది వృత్తిపరమైన సంబంధాలను పెంచుకోవడానికి, కెరీర్ అభివృద్ధికి, ఉద్యోగ ప్రకటనలు ఇవ్వడానికి మరియు దరఖాస్తు చేసుకోవడానికి తోడ్పడుతుంది. దీని ప్రొఫైల్ డిజిటల్ రెజ్యూమే లాగా పనిచేస్తుంది.</span></p>
+            </div>
+
+            <div class="features-title">Features / ముఖ్య లక్షణాలు:</div>
+            <ul class="points-list">
+                <li>
+                    <span class="en-text"><strong>Profile:</strong> Acts as an online resume featuring <strong>work experience, education, skills, certifications, and awards</strong>. Should include professional photographs and relevant industry keywords.</span>
+                    <span class="te-text"><strong>ప్రొఫైల్ (Profile):</strong> మీ చదువు, ఉద్యోగ అనుభవం, సర్టిఫికేట్‌లు మరియు నైపుణ్యాలను తెలిపే <strong>పూర్తి వివరాలతో కూడిన డిజిటల్ రెజ్యూమే</strong>.</span>
+                </li>
+                <li>
+                    <span class="en-text"><strong>Groups:</strong> Allows users to join up to <strong>50 professional groups</strong> based on industry, location, or technical domains to build connections.</span>
+                    <span class="te-text"><strong>గ్రూప్‌లు (Groups):</strong> మీ రంగానికి లేదా పరిశ్రమకు సంబంధించిన దాదాపు <strong>50 ప్రొఫెషనల్ గ్రూప్‌లలో చేరడానికి</strong> అవకాశం ఉంటుంది.</span>
+                </li>
+                <li>
+                    <span class="en-text"><strong>Recommendations:</strong> Users can request and receive <strong>formal endorsements and recommendations</strong> from clients, colleagues, and leaders to increase professional credibility.</span>
+                    <span class="te-text"><strong>సిఫార్సులు (Recommendations):</strong> మీ నైపుణ్యం మరియు ప్రతిభను ధృవీకరిస్తూ అధికారులు లేదా కస్టమర్ల నుండి <strong>రికమండేషన్స్ పొందవచ్చు</strong>.</span>
+                </li>
+                <li>
+                    <span class="en-text"><strong>Applications:</strong> Enables embedding professional external content like <strong>slideshows, blog feeds, and published materials</strong> directly onto the profile.</span>
+                    <span class="te-text"><strong>అప్లికేషన్లు (Applications):</strong> మీ వర్క్ ప్రెజెంటేషన్లు, బ్లాగ్ ఫీడ్‌లు మరియు ఆర్టికల్స్‌ను <strong>నేరుగా ప్రొఫైల్‌కు జత చేయవచ్చు</strong>.</span>
+                </li>
+                <li>
+                    <span class="en-text"><strong>Status Updates:</strong> Share business updates, training programs, and products using <strong>Likes, Comments, and Hashtags</strong> to maintain corporate engagement.</span>
+                    <span class="te-text"><strong>స్టేటస్ అప్‌డేట్స్:</strong> కొత్త వ్యాపార విషయాలు, సర్వీసులు మరియు శిక్షణ వివరాలను పోస్ట్ చేస్తూ <strong>నెట్‌వర్క్‌తో కనెక్ట్ అయి ఉండవచ్చు</strong>.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Q21: Tumblr -->
+        <div class="card q21">
+            <div class="card-header">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-7YWwsUFQIb_ZCBxRUJi2fK2tE9e8MnbTaZOisy3kmPHV7VfaiPKE4A4&s=10" alt="Tumblr">
+                <div class="card-title">
+                    <h2>Q.21. What is Tumblr? Explain its features.</h2>
+                </div>
+            </div>
+
+            <div class="intro-box">
+                <p><span class="en-text">Tumblr is a popular <strong>social microblogging platform</strong> widely used by teens and young adults. It specializes in sharing <strong>visual and multimedia content</strong>. Users can customize blog themes, follow dashboard feeds, and interact using <strong>reblogs and likes</strong>.</span></p>
+                <p><span class="te-text">టంబ్లార్ అనేది యువత ఎక్కువగా ఉపయోగించే ఒక ప్రముఖ <strong>సోషల్ బ్లాగింగ్ ప్లాట్‌ఫారమ్</strong>. ఇది ప్రధానంగా ఫోటోలు, వీడియోలు వంటి <strong>మల్టీమీడియా కంటెంట్‌ను పంచుకోవడానికి</strong> మరియు రీబ్లాగ్ (Reblog) చేయడానికి ఉపయోగపడుతుంది.</span></p>
+            </div>
+
+            <div class="features-title">Features / ముఖ్య లక్షణాలు:</div>
+            <ul class="points-list">
+                <li>
+                    <span class="en-text">1. <strong>Finding Friends:</strong> Easily search and follow any user with shared interests to build connections within the community.</span>
+                    <span class="te-text">1. <strong>స్నేహితులను కనుగొనడం:</strong> సమానమైన ఆసక్తులు ఉన్న ఇతరులను సులభంగా అనుసరించవచ్చు (Follow కావచ్చు).</span>
+                </li>
+                <li>
+                    <span class="en-text">2. <strong>Interacting with Friends:</strong> Share content publicly or manage <strong>collaborative private blogs</strong> with multiple account controls.</span>
+                    <span class="te-text">2. <strong>కమ్యూనికేషన్:</strong> కంటెంట్‌ను లైక్ చేయడం, రీబ్లాగ్ చేయడం లేదా ప్రైవేట్ బ్లాగ్‌లను ఇతరులతో కలిసి నిర్వహించడం చేయవచ్చు.</span>
+                </li>
+                <li>
+                    <span class="en-text">3. <strong>Portfolio:</strong> Flexible design themes and simple UI make it ideal for displaying creative work in a <strong>digital portfolio</strong>.</span>
+                    <span class="te-text">3. <strong>పోర్ట్‌ఫోలియో (Portfolio):</strong> దీనిలోని ఫ్లెక్సిబుల్ థీమ్స్ సహాయంతో మీ డిజిటల్ వర్క్‌ను పోర్ట్‌ఫోలియోలా ప్రదర్శించవచ్చు.</span>
+                </li>
+                <li>
+                    <span class="en-text">4. <strong>Photo Blogging:</strong> Highly popular for running dedicated photography blogs covering subjects like food, wildlife, and landscapes.</span>
+                    <span class="te-text">4. <strong>ఫోటో బ్లాగింగ్:</strong> ఛాయాచిత్రాలు, ప్రకృతి, ఆహారానికి సంబంధించిన ఫోటోలను ప్రత్యేకంగా బ్లాగ్ చేయవచ్చు.</span>
+                </li>
+                <li>
+                    <span class="en-text">5. <strong>Travel Blogging:</strong> Used extensively by travelers and foreign students to document personal journeys using text and images.</span>
+                    <span class="te-text">5. <strong>ట్రావెల్ బ్లాగింగ్:</strong> ప్రయాణీకులు మరియు విద్యార్థులు తమ ప్రయాణ అనుభవాలను ఫోటోలు, టెక్స్ట్ రూపంలో నమోదు చేయవచ్చు.</span>
+                </li>
+                <li>
+                    <span class="en-text">6. <strong>Business Blogging:</strong> Helps companies build <strong>brand awareness</strong>, promote products, and foster customer rapport.</span>
+                    <span class="te-text">6. <strong>బిజినెస్ బ్లాగింగ్:</strong> కంపెనీలు తమ బ్రాండ్ ప్రమోషన్ చేయడానికి మరియు వినియోగదారులతో అనుబంధం పెంచుకోవడానికి తోడ్పడుతుంది.</span>
+                </li>
+                <li>
+                    <span class="en-text">7. <strong>Hobby Blogging:</strong> Supports passion blogs for hobbies such as gaming, fashion, art, cosplay, music, and writing.</span>
+                    <span class="te-text">7. <strong>హాబీ బ్లాగింగ్:</strong> గేమింగ్, ఆర్ట్, ఫ్యాషన్, సంగీతం, డిజైనింగ్ వంటి ప్రత్యేక అలవాట్లను పంచుకోవచ్చు.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Q22: Facebook -->
+        <div class="card q22">
+            <div class="card-header">
+                <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202008/How_to_appear_offline_on_Faceb_0.png?size=690:388" alt="Facebook">
+                <div class="card-title">
+                    <h2>Q.22. What is Facebook? Explain its features.</h2>
+                </div>
+            </div>
+
+            <div class="intro-box">
+                <p><span class="en-text">Facebook is the <strong>world's largest social networking platform</strong>, launched in <strong>2004 by Mark Zuckerberg</strong> at Harvard University. It enables users to connect and share content with family and friends worldwide. Anyone aged <strong>13 or above</strong> with a valid email can register.</span></p>
+                <p><span class="te-text">ఫేస్‌బుక్ అనేది ప్రపంచంలోనే <strong>అతిపెద్ద సోషల్ నెట్‌వర్కింగ్ సైట్</strong>. దీనిని <strong>2004లో మార్క్ జుకర్‌బర్గ్</strong> హార్వర్డ్ విశ్వవిద్యాలయంలో ప్రారంభించారు. 13 సంవత్సరాల వయస్సు దాటి, ఇమెయిల్ ఉన్న ఎవరైనా దీనిని ఉపయోగించవచ్చు.</span></p>
+            </div>
+
+            <div class="features-title">Features & Benefits / ముఖ్య లక్షణాలు:</div>
+            <ul class="points-list">
+                <li>
+                    <span class="en-text">1. It is completely <strong>free to join and access</strong> from anywhere globally with an internet connection.</span>
+                    <span class="te-text">1. ఇంటర్నెట్ సదుపాయం ఉంటే ప్రపంచంలో ఎక్కడి నుండైనా దీనిని <strong>ఉచితంగా ఉపయోగించవచ్చు</strong>.</span>
+                </li>
+                <li>
+                    <span class="en-text">2. Users can easily share <strong>text messages, video links, photos, and website URLs</strong>.</span>
+                    <span class="te-text">2. సందేశాలు, <strong>వీడియోలు, ఫోటోలు మరియు వెబ్‌సైట్ లింక్‌లను</strong> సులభంగా షేర్ చేయవచ్చు.</span>
+                </li>
+                <li>
+                    <span class="en-text">3. Serves as an organizational tool for <strong>creating events and managing invitations</strong>.</span>
+                    <span class="te-text">3. ఈవెంట్‌లు మరియు శుభకార్యాల <strong>ఆహ్వానాలను ప్లాన్ చేయడానికి</strong> ఉపయోగపడుతుంది.</span>
+                </li>
+                <li>
+                    <span class="en-text">4. Built-in search features allow locating individuals by <strong>name or email address</strong>.</span>
+                    <span class="te-text">4. పేరు లేదా <strong>ఇమెయిల్ ద్వారా స్నేహితులను వెతకడానికి</strong> సెర్చ్ సదుపాయం ఉంటుంది.</span>
+                </li>
+                <li>
+                    <span class="en-text">5. Comprehensive <strong>privacy settings</strong> allow controlling who can view profile content or access pages.</span>
+                    <span class="te-text">5. మీ ప్రొఫైల్ కంటెంట్‌ను ఎవరు చూడవచ్చో నియంత్రించే <strong>ప్రైవసీ సెట్టింగ్‌లు ఉంటాయి</strong>.</span>
+                </li>
+                <li>
+                    <span class="en-text">6. Operates <strong>24/7 globally</strong>, enabling seamless communication across time zones.</span>
+                    <span class="te-text">6. టైమ్ జోన్ తేడాలు లేకుండా ప్రపంచవ్యాప్తంగా <strong>24 గంటలూ అందుబాటులో ఉంటుంది</strong>.</span>
+                </li>
+            </ul>
+
+            <div class="features-title" style="margin-top:20px;">Ways to Find Friends / స్నేహితులను వెతికే మార్గాలు:</div>
+            <ul class="points-list">
+                <li>
+                    <span class="en-text">(1) Browse and join <strong>Networks</strong> organized by regions, workplaces, high schools, or colleges.</span>
+                    <span class="te-text">(1) ప్రాంతాలు, కళాశాలలు, ఆఫీసుల ఆధారంగా ఉండే <strong>నెట్‌వర్క్‌లలో చేరవచ్చు</strong>.</span>
+                </li>
+                <li>
+                    <span class="en-text">(2) Import and <strong>match email contact lists</strong> automatically against the membership database.</span>
+                    <span class="te-text">(2) మీ ఇమెయిల్ కాంటాక్ట్‌లను <strong>ఆటోమేటిక్‌గా మ్యాచ్ చేసి స్నేహితులను జత చేయవచ్చు</strong>.</span>
+                </li>
+                <li>
+                    <span class="en-text">(3) Use the main <strong>search bar</strong> to locate specific individuals directly.</span>
+                    <span class="te-text">(3) ఫేస్‌బుక్ <strong>సెర్చ్ ఇంజిన్‌లో నేరుగా పేరు టైప్ చేసి</strong> కనుగొనవచ్చు.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Q23: Flickr -->
+        <div class="card q23">
+            <div class="card-header">
+                <img src="https://www.techspot.com/articles-info/2384/images/2021-12-26-image.png" alt="Flickr">
+                <div class="card-title">
+                    <h2>Q.23. What is Flickr? Explain its features.</h2>
+                </div>
+            </div>
+
+            <div class="intro-box">
+                <p><span class="en-text">Flickr is a premier <strong>photo and video hosting platform</strong> with over 7,000 photos uploaded per minute. It requires a <strong>Yahoo! ID</strong> and provides <strong>1,000 GB (1 TB) of free storage</strong> for high-quality media.</span></p>
+                <p><span class="te-text">ఫ్లికర్ అనేది <strong>ఫోటోలు మరియు వీడియోలను దాచుకోవడానికి (Storage)</strong> మరియు షేర్ చేయడానికి ఉపయోగపడే ప్రముఖ వెబ్‌సైట్. దీనికి <strong>యాహూ (Yahoo) ID</strong> అవసరం మరియు ఇది ఉచితంగా <strong>1,000 GB స్టోరేజ్‌ను</strong> అందిస్తుంది.</span></p>
+            </div>
+
+            <div class="features-title">Features / ముఖ్య లక్షణాలు:</div>
+            <ul class="points-list">
+                <li>
+                    <span class="en-text"><strong>Interestingness:</strong> A patented algorithm that ranks photos based on <strong>views, comments, and favorites</strong>. Top-ranked photos appear on the <strong>"Explore" page</strong>.</span>
+                    <span class="te-text"><strong>ఇంట్రెస్టింగ్ నెస్ (Interestingness):</strong> ఎక్కువ మంది చూసిన, కామెంట్ చేసిన ఫోటోలకు <strong>ఆటోమేటిక్ ర్యాంకింగ్ ఇచ్చే పేటెంట్ వ్యవస్థ</strong>.</span>
+                </li>
+                <li>
+                    <span class="en-text"><strong>Uploadr:</strong> Desktop software for Windows and Mac to seamlessly <strong>bulk upload thousands of images</strong> from hard drives or external storage.</span>
+                    <span class="te-text"><strong>అప్‌లోడర్ (Uploadr):</strong> కంప్యూటర్ లేదా హార్డ్ డ్రైవ్‌ల నుండి <strong>వేలాది ఫోటోలను ఒకేసారి అప్‌లోడ్ చేసే సాఫ్ట్‌వేర్</strong>.</span>
+                </li>
+                <li>
+                    <span class="en-text"><strong>Camera Roll:</strong> Allows viewing full image catalogs, organizing with fluid gestures, and performing <strong>bulk editing operations</strong>.</span>
+                    <span class="te-text"><strong>కెమెరా రోల్ (Camera Roll):</strong> ఫోటోల కేటలాగ్‌ను చూస్తూ <strong>ఒకేసారి బల్క్ ఎడిటింగ్ (Bulk Editing) చేసే సౌకర్యం</strong>.</span>
+                </li>
+                <li>
+                    <span class="en-text"><strong>Magic View:</strong> Uses advanced <strong>computer vision technology (AI)</strong> to automatically categorize photos into themes like landscapes, people, black & white, and abstract.</span>
+                    <span class="te-text"><strong>మాజిక్ వ్యూ (Magic View):</strong> ఫోటోలను ప్రకృతి, మనుషులు, బ్లాక్ & వైట్ అని <strong>AI (కంప్యూటర్ విజన్) ద్వారా వర్గీకరిస్తుంది</strong>.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Q24: Skype -->
+        <div class="card q24">
+            <div class="card-header">
+                <img src="https://archive.siasat.com/wp-content/uploads/2020/01/Skype-logo.jpg" alt="Skype">
+                <div class="card-title">
+                    <h2>Q.24. What is Skype? Explain its features.</h2>
+                </div>
+            </div>
+
+            <div class="intro-box">
+                <p><span class="en-text">Skype is a major <strong>VoIP (Voice over Internet Protocol)</strong> application that enables free or low-cost <strong>voice calls, video calls, and instant messaging</strong> over the internet globally.</span></p>
+                <p><span class="te-text">స్కైప్ అనేది ఇంటర్నెట్ ద్వారా ఉచితంగా లేదా తక్కువ ఖర్చుతో <strong>వాయిస్/వీడియో కాల్స్ మరియు మెసేజ్‌లు చేసుకోవడానికి</strong> ఉపయోగపడే <strong>VoIP సేవ</strong>.</span></p>
+            </div>
+
+            <div class="features-title">Categorized Features / విభజించబడిన లక్షణాలు:</div>
+            
+            <div class="features-title" style="margin-top:10px;">1. Make Calls / కాల్స్ చేయడం:</div>
+            <ul class="points-list">
+                <li><span class="en-text">• Dial contacts directly, use the softphone <strong>Dial pad</strong>, or utilize <strong>Auto-redial</strong> for received calls.</span><span class="te-text">• కాంటాక్ట్ పేర్లు, స్క్రీన్ డయల్ ప్యాడ్ లేదా రీ-డయల్ ద్వారా <strong>కాల్స్ చేయవచ్చు</strong>.</span></li>
+            </ul>
+
+            <div class="features-title" style="margin-top:15px;">2. Receive Calls / కాల్స్ స్వీకరించడం:</div>
+            <ul class="points-list">
+                <li><span class="en-text">• <strong>Accept or reject incoming calls</strong>, view caller profiles, manage profile access authorization, and <strong>block unwanted callers</strong>.</span><span class="te-text">• కాల్స్ లిఫ్ట్/కట్ చేయవచ్చు, కాలర్ ప్రొఫైల్ చూడవచ్చు మరియు <strong>అనామక నంబర్లను బ్లాక్ చేయవచ్చు</strong>.</span></li>
+            </ul>
+
+            <div class="features-title" style="margin-top:15px;">3. Manage Contacts / కాంటాక్ట్స్ నిర్వహణ:</div>
+            <ul class="points-list">
+                <li><span class="en-text">• Search contacts, edit user profiles, and initiate multi-party <strong>group conference calls</strong>.</span><span class="te-text">• కాంటాక్ట్‌లను వెతకవచ్చు మరియు బహుళ వ్యక్తులతో <strong>కాన్ఫరెన్స్ కాల్స్ ప్రారంభించవచ్చు</strong>.</span></li>
+            </ul>
+
+            <div class="features-title" style="margin-top:15px;">4. Chat or Instant Messaging (IM) / చాటింగ్:</div>
+            <ul class="points-list">
+                <li><span class="en-text">• Start private/group chats, respond to offline messages, <strong>bookmark active sessions</strong>, and view or clear chat history.</span><span class="te-text">• ప్రైవేట్/గ్రూప్ చాటింగ్ చేయవచ్చు, ఆఫ్‌లైన్ మెసేజ్‌లకు రిప్లై ఇవ్వవచ్చు మరియు <strong>చాట్ హిస్టరీ మేనేజ్ చేయవచ్చు</strong>.</span></li>
+            </ul>
+
+            <div class="features-title" style="margin-top:15px;">5. Share Files / ఫైల్స్ షేర్ చేయడం:</div>
+            <ul class="points-list">
+                <li><span class="en-text">• Send single or multiple files seamlessly using <strong>drag and drop functionality into chat windows or contact lists</strong>.</span><span class="te-text">• ఫైళ్లను చాట్ విండోలోకి నేరుగా <strong>డ్రాగ్ & డ్రాప్ (Drag and Drop) చేసి సులభంగా పంపవచ్చు</strong>.</span></li>
+            </ul>
+        </div>
+
+        <!-- Q25: Yahoo -->
+        <div class="card q25">
+            <div class="card-header">
+                <img src="https://www.lifewire.com/thmb/yx5oJUJ4fA1TQ0h0pl9FM7Kc4Fo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/yahoo-logo-2019-879b7bed612d4bbc97065dce2a0f2d73.png" alt="Yahoo">
+                <div class="card-title">
+                    <h2>Q.25. What is Yahoo ? Explain its features.</h2>
+                </div>
+            </div>
+
+            <div class="intro-box">
+                <p><span class="en-text">Yahoo! is a major <strong>Internet portal</strong> that combines a search engine and a structured directory of Web sites organized in a hierarchy of topic categories. Founded by Stanford students <strong>David Filo and Jerry Yang</strong>, it grew from a bookmark list into a global internet phenomenon.</span></p>
+                <p><span class="te-text">యాహూ (Yahoo!) అనేది శోధన యంత్రం (Search Engine) మరియు వెబ్‌సైట్‌ల యొక్క వర్గీకరించబడిన డైరెక్టరీని కలిగిన ఒక ప్రముఖ <strong>ఇంటర్నెట్ పోర్టల్</strong>. దీనిని స్టాన్‌ఫోర్డ్ విద్యార్థులైన <strong>డేవిడ్ ఫిలో మరియు జెర్రీ యాంగ్</strong> ప్రారంభించారు.</span></p>
+            </div>
+
+            <div class="features-title">Yahoo Services & Features / ప్రముఖ సేవలు:</div>
+            <ul class="points-list">
+                <li><span class="en-text">1. <strong>Yahoo! Finance:</strong> Provides stock quotes, financial news, and market information.</span><span class="te-text">1. <strong>యాహూ ఫైనాన్స్:</strong> స్టాక్ మార్కెట్ వివరాలు మరియు ఆర్థిక సమాచారాన్ని అందిస్తుంది.</span></li>
+                <li><span class="en-text">2. <strong>Yahoo! Shopping:</strong> Online retail directory and price comparison services.</span><span class="te-text">2. <strong>యాహూ షాపింగ్:</strong> ఆన్‌లైన్ షాపింగ్ మరియు ధరల పోలిక (Price comparison) సేవలు.</span></li>
+                <li><span class="en-text">3. <strong>Yahoo! Games:</strong> Offers web-based playable online games for users.</span><span class="te-text">3. <strong>యాహూ గేమ్స్:</strong> ఇంటర్నెట్ ద్వారా ఆడుకునే ఆన్‌లైన్ గేమ్‌లు.</span></li>
+                <li><span class="en-text">4. <strong>Yahoo! Groups:</strong> Facilitates organized discussion forums among internet users.</span><span class="te-text">4. <strong>యాహూ గ్రూప్స్:</strong> ఇంటర్నెట్ వినియోగదారుల మధ్య చర్చా వేదికలు (Discussion forums).</span></li>
+                <li><span class="en-text">5. <strong>Yahoo! Travel:</strong> Provides travel guide information and booking services.</span><span class="te-text">5. <strong>యాహూ ట్రావెల్:</strong> ప్రయాణ సమాచారం మరియు టికెట్ బుకింగ్ సేవలు.</span></li>
+                <li><span class="en-text">6. <strong>Yahoo! Maps:</strong> Offers digital maps and route directions.</span><span class="te-text">6. <strong>యాహూ మ్యాప్స్:</strong> డిజిటల్ మ్యాప్‌లు మరియు దారుల మార్గదర్శకత్వం (Directions).</span></li>
+                <li><span class="en-text">7. <strong>Yahoo! Messenger:</strong> Instant text messaging and online chat service.</span><span class="te-text">7. <strong>యాహూ మెసెంజర్:</strong> తక్షణ మెసేజ్‌లు పంపుకునే ఇన్స్టంట్ మెసేజింగ్ సేవ.</span></li>
+                <li><span class="en-text">8. <strong>Yahoo! Mail:</strong> Launched in 1997, offering <strong>free web-based email</strong> alongside optional paid services for larger storage, offline archival, and POP forwarding.</span><span class="te-text">8. <strong>యాహూ మెయిల్:</strong> 1997లో ప్రారంభించబడిన <strong>ఉచిత వెబ్-ఆధారిత ఇమెయిల్ సేవ</strong>. ఇది అదనపు స్టోరేజ్ మరియు ఆఫ్‌లైన్ సదుపాయాలను కూడా ఇస్తుంది.</span></li>
+            </ul>
+        </div>
+
+        <!-- Q26: Google+ Features -->
+        <div class="card q26">
+            <div class="card-header">
+                <img src="https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?auto=format&fit=crop&w=300&q=80" alt="Google Plus">
+                <div class="card-title">
+                    <h2>Q.26. What is Google + ? Explain its features.</h2>
+                </div>
+            </div>
+
+            <div class="intro-box">
+                <p><span class="en-text">Google+ is a <strong>social networking service</strong> developed by Google to integrate existing Google products. It focuses on controlled social interaction with enhanced transparency in sharing.</span></p>
+                <p><span class="te-text">గూగుల్+ అనేది గూగుల్ ద్వారా అందించబడిన ఒక <strong>సోషల్ నెట్‌వర్కింగ్ సేవ</strong>. ఇది సమాచారాన్ని ఎవరితో షేర్ చేసుకుంటున్నామో స్పష్టతను ఇస్తూ గూగుల్ యొక్క ఇతర సేవలను ఒకటిగా అనుసంధానిస్తుంది.</span></p>
+            </div>
+
+            <div class="features-title">Features / ముఖ్య లక్షణాలు:</div>
+            <ul class="points-list">
+                <li>
+                    <span class="en-text"><strong>Circles:</strong> Sets up personalized social circles to organize contacts into smaller groups (e.g., Work, Family) instead of broadcasting updates to everyone.</span>
+                    <span class="te-text"><strong>సర్కిల్స్ (Circles):</strong> మీ కాంటాక్ట్‌లను కుటుంబం, పని వంటి <strong>చిన్న వర్గాలుగా వర్గీకరించి షేర్ చేసే సదుపాయం</strong>.</span>
+                </li>
+                <li>
+                    <span class="en-text"><strong>Huddle:</strong> A group chat feature for mobile phones that pools individual SMS messages into a private group conversation.</span>
+                    <span class="te-text"><strong>హడిల్ (Huddle):</strong> మొబైల్ ఫోన్‌ల కోసం ప్రైవేట్ <strong>గ్రూప్ చాట్ సదుపాయం</strong>.</span>
+                </li>
+                <li>
+                    <span class="en-text"><strong>Hangouts:</strong> Video chat and instant messaging service allowing video calls with <strong>up to 10 users simultaneously</strong> while signaling online availability.</span>
+                    <span class="te-text"><strong>హాంగ్అవుట్స్ (Hangouts):</strong> ఒకేసారి <strong>10 మంది వరకు పాల్గొనగల వీడియో చాట్</strong> మరియు మెసేజింగ్ సదుపాయం.</span>
+                </li>
+                <li>
+                    <span class="en-text"><strong>Sparks:</strong> A topic suggestion engine that discovers interesting Web content based on specified user interests.</span>
+                    <span class="te-text"><strong>స్పార్క్స్ (Sparks):</strong> మీ ఆసక్తులకు అనుగుణంగా ఇంటర్నెట్‌లోని ఆసక్తికర విషయాలను వెతికి ఇచ్చే <strong>సజెషన్ ఇంజిన్</strong>.</span>
+                </li>
+                <li>
+                    <span class="en-text"><strong>Instant Uploads:</strong> Mobile camera feature that automatically uploads photos/videos to a private album for selective sharing.</span>
+                    <span class="te-text"><strong>ఇన్స్టంట్ అప్‌లోడ్స్:</strong> ఫోన్ ద్వారా తీసే ఫోటోలు/వీడియోలను <strong>ఆటోమేటిక్‌గా ప్రైవేట్ ఆల్బమ్‌లోకి అప్‌లోడ్ చేసే యాప్</strong>.</span>
+                </li>
+                <li>
+                    <span class="en-text"><strong>Check-ins:</strong> Location sharing capability allowing users to check-in at locations via mobile phones.</span>
+                    <span class="te-text"><strong>చెక్-ఇన్స్ (Check-ins):</strong> మీరు ఉన్న ప్రదేశాన్ని (Location) ఇతరులతో షేర్ చేసుకునే సదుపాయం.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Q27: How to use Google+ -->
+        <div class="card q27">
+            <div class="card-header">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=300&q=80" alt="Google+ Usage">
+                <div class="card-title">
+                    <h2>Q.27. How to use Google + ? Explain.</h2>
+                </div>
+            </div>
+
+            <div class="features-title">Steps and Usage Guidelines / ఉపయోగించే విధానం:</div>
+            <ul class="points-list">
+                <li>
+                    <span class="en-text">1. Access the <strong>Google Plus homepage</strong> and sign in using your existing Google account (Gmail, YouTube, Drive) or create a new account.</span>
+                    <span class="te-text">1. గూగుల్ ప్లస్ హోమ్‌పేజీకి వెళ్లి మీ <strong>గూగుల్ ఖాతా (Gmail, YouTube) ద్వారా లాగిన్ అవ్వాలి</strong> లేదా క్రొత్త ఖాతా తెరవాలి.</span>
+                </li>
+                <li>
+                    <span class="en-text">2. Set up your profile by entering your <strong>full name and adding a profile picture</strong>.</span>
+                    <span class="te-text">2. మీ <strong>పేరు మరియు ప్రొఫైల్ చిత్రాన్ని (Profile Picture)</strong> చేర్చి ప్రొఫైల్‌ను ప్రారంభించాలి.</span>
+                </li>
+                <li>
+                    <span class="en-text">3. Access your account at any time via the homepage using your credentials.</span>
+                    <span class="te-text">3. మీ లాగిన్ వివరాలతో ఎప్పుడైనా గూగుల్ ప్లస్ ఖాతాను ఓపెన్ చేయవచ్చు.</span>
+                </li>
+                <li>
+                    <span class="en-text">4. Apply text formatting in posts easily using HTML-like shortcuts: <strong>*bold*</strong> using asterisks, <strong>_underline_</strong> using underscores, and <strong>-strikethrough-</strong> using hyphens.</span>
+                    <span class="te-text">4. పోస్ట్‌లలో టెక్స్ట్ మార్చడానికి: *అక్షరాల చుట్టూ స్టార్ పెడితే <strong>Bold</strong>*, _అండర్‌స్కోర్ పెడితే <strong>Underline</strong>_, -హైఫన్ పెడితే <strong>Strikethrough</strong>- అవుతాయి.</span>
+                </li>
+                <li>
+                    <span class="en-text">5. Tag people in posts by adding <strong>+ or @</strong> in front of their name to invoke auto-fill suggestions.</span>
+                    <span class="te-text">5. ఇతరులను టాగ్ చేయడానికి పేరు ముందు <strong>+ లేదా @ గుర్తులను చేర్చాలి</strong>.</span>
+                </li>
+                <li>
+                    <span class="en-text">6. Upload photos by clicking the <strong>Photos icon</strong> at the top of the page to share with Circles.</span>
+                    <span class="te-text">6. పేజీ పైన ఉన్న <strong>Photos ఐకాన్ పై క్లిక్ చేసి</strong> ఫోటోలను అప్‌లోడ్ చేయవచ్చు.</span>
+                </li>
+                <li>
+                    <span class="en-text">7. Edit profile settings, work info, and employment by clicking the <strong>Profile icon</strong>.</span>
+                    <span class="te-text">7. <strong>Profile ఐకాన్ ద్వారా</strong> మీ వ్యక్తిగత వివరాలు, ఉద్యోగ సమాచారాన్ని సవరించవచ్చు.</span>
+                </li>
+                <li>
+                    <span class="en-text">8. Manage social groups, view existing members, and send friend invites using the <strong>Circles icon</strong>.</span>
+                    <span class="te-text">8. <strong>Circles ఐకాన్ సహాయంతో</strong> గ్రూప్‌లను నిర్వహించవచ్చు మరియు కొత్త స్నేహితులను ఆహ్వానించవచ్చు.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Q28: YouTube -->
+        <div class="card q28">
+            <div class="card-header">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs2SqmFs3NP55RoLOHF7NsKUGmi8aa3yxpgW8nSNomio1tJbLmv4R9CvcM&s=10" alt="YouTube">
+                <div class="card-title">
+                    <h2>Q.28. What is YouTube ? Explain its features.</h2>
+                </div>
+            </div>
+
+            <div class="intro-box">
+                <p><span class="en-text">YouTube is a popular video-sharing platform founded on <strong>February 15, 2005, by Steve Chen, Chad Hurley, and Jawed Karim</strong>. It allows users to upload, view, rate, and comment on videos without needing extra video plugins. It also serves as a key tool for <strong>businesses and musicians</strong>.</span></p>
+                <p><span class="te-text">యూట్యూబ్ (YouTube) అనేది ఒక ప్రముఖ వీడియొ షేరింగ్ ప్లాట్‌ఫారమ్. దీనిని <strong>15 ఫిబ్రవరి 2005న స్టీవ్ చెన్, చాడ్ హర్లీ మరియు జావేద్ కరీమ్</strong> ప్రారంభించారు. అదనపు సాఫ్ట్‌వేర్ లేకుండానే వీడియోలు చూడటానికి, అప్‌లోడ్ చేయడానికి మరియు కామెంట్ చేయడానికి ఇది ఉపయోగపడుతుంది.</span></p>
+            </div>
+
+            <div class="features-title">Features / ముఖ్య లక్షణాలు:</div>
+            <ul class="points-list">
+                <li>
+                    <span class="en-text">1. <strong>YouTube Bulletins:</strong> Post direct video links onto your subscribers' and friends' YouTube homepages.</span>
+                    <span class="te-text">1. <strong>యూట్యూబ్ బులెటిన్స్:</strong> మీ సబ్‌స్క్రైబర్ల హోమ్‌పేజీపై నేరుగా వీడియో లింక్‌ను పోస్ట్ చేసే సదుపాయం.</span>
+                </li>
+                <li>
+                    <span class="en-text">2. <strong>Featured Video Autoplay:</strong> Highlight a specific channel video to play automatically when users visit your channel.</span>
+                    <span class="te-text">2. <strong>ఫీచర్డ్ వీడియో ఆటోప్లే:</strong> ఎవరైనా మీ ఛానెల్‌ని సందర్శించినప్పుడు ఒక ముఖ్యమైన వీడియో <strong>ఆటోమేటిక్‌గా ప్లే అయ్యేలా</strong> సెట్ చేయడం.</span>
+                </li>
+                <li>
+                    <span class="en-text">3. <strong>Links in Descriptions:</strong> Place external links right at the top of the video description box below the player.</span>
+                    <span class="te-text">3. <strong>డిస్క్రిప్షన్‌లో లింక్‌లు:</strong> వీడియో కింద ఉండే డిస్క్రిప్షన్ బాక్స్‌లో లింక్‌లను పొందుపరచడం.</span>
+                </li>
+                <li>
+                    <span class="en-text">4. <strong>Social Media Sharing:</strong> Connect social media accounts to directly share uploaded videos across networks.</span>
+                    <span class="te-text">4. <strong>సోషల్ మీడియా షేరింగ్:</strong> వీడియోలను ఇతర సోషల్ నెట్‌వర్క్‌లలో సులభంగా షేర్ చేయడం.</span>
+                </li>
+                <li>
+                    <span class="en-text">5. <strong>Video Annotations:</strong> Add interactive text boxes and clickable video links inside the video timeline.</span>
+                    <span class="te-text">5. <strong>వీడియో అనోటేషన్స్:</strong> వీడియో నడుస్తున్నప్పుడు స్క్రీన్ పై క్లిక్ చేయగల టెక్స్ట్ బాక్స్‌లు లేదా లింక్‌లను పెట్టడం.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Q29: WhatsApp -->
+        <div class="card q29">
+            <div class="card-header">
+                <img src="https://static-images.aptoide.com/_next/image?url=https%3A%2F%2Fcdn.aptoide.com%2Fimgs%2Fc%2F2%2F5%2Fc253cb2d71508e03763b95d66b3b4ca4_fgraphic.png&w=3840&q=60" alt="WhatsApp">
+                <div class="card-title">
+                    <h2>Q.29. What is WhatsApp ? Explain its features.</h2>
+                </div>
+            </div>
+
+            <div class="intro-box">
+                <p><span class="en-text">WhatsApp is a mobile messaging application serving as a <strong>free alternative to regular SMS</strong> text messaging. It uses an internet connection and operates across various platforms including <strong>Android, iOS, Windows Phone, and BlackBerry</strong>.</span></p>
+                <p><span class="te-text">వాట్సాప్ (WhatsApp) అనేది సాధారణ SMS స్థానంలో ఉపయోగపడే ఒక **సందేశాల యాప్ (Texting Service)**. ఇది ఇంటర్నెట్ ఆధారంగా పనిచేస్తుంది మరియు ఆండ్రాయిడ్, iOS మొదలైన ఫోన్‌లలో అందుబాటులో ఉంది.</span></p>
+            </div>
+
+            <div class="features-title">Features / ముఖ్య లక్షణాలు:</div>
+            <ul class="points-list">
+                <li>
+                    <span class="en-text">1. <strong>Free Messaging:</strong> Uses mobile data/Wi-Fi to send messages without SMS package charges.</span>
+                    <span class="te-text">1. <strong>ఉచిత మెసేజింగ్:</strong> SMS చార్జీలు లేకుండా ఇంటర్నెట్ ద్వారా సందేశాలు పంపుకోవచ్చు.</span>
+                </li>
+                <li>
+                    <span class="en-text">2. <strong>Contact Sync & Notifications:</strong> Accesses phone contacts automatically and supports push notifications.</span>
+                    <span class="te-text">2. <strong>కాంటాక్ట్స్ సింక్:</strong> ఫోన్ కాంటాక్ట్‌లను ఆటోమేటిక్‌గా రీడ్ చేస్తుంది మరియు నోటిఫికేషన్స్ ఇస్తుంది.</span>
+                </li>
+                <li>
+                    <span class="en-text">3. <strong>Starred Messages:</strong> Allows bookmarking important messages using the 'Star' icon to easily search them chronologically later.</span>
+                    <span class="te-text">3. <strong>స్టార్డ్ మెసేజ్‌లు (Starred Messages):</strong> ముఖ్యమైన సందేశాలకు <strong>'స్టార్ (Star)' గుర్తును ఇచ్చి బుక్‌మార్క్ చేసుకోవచ్చు</strong>.</span>
+                </li>
+                <li>
+                    <span class="en-text">4. <strong>Google Drive Chat Backup:</strong> Automatically backs up chat logs and media to Google Drive (Settings > Chats > Chat Backup).</span>
+                    <span class="te-text">4. <strong>గూగుల్ డ్రైవ్ బ్యాకప్:</strong> చాట్ వివరాలను <strong>గూగుల్ డ్రైవ్‌లోకి ఆటోమేటిక్‌గా బ్యాకప్ చేసే సదుపాయం</strong>.</span>
+                </li>
+                <li>
+                    <span class="en-text">5. <strong>Rich Link Previews:</strong> Automatically generates rich link previews with image thumbnails, headlines, and domain URLs when pasting links.</span>
+                    <span class="te-text">5. <strong>లింక్ ప్రివ్యూ (Link Preview):</strong> ఏదైనా వెబ్‌సైట్ లింక్ పేస్ట్ చేసినప్పుడు దానికి సంబంధించిన <strong>చిత్రం మరియు శీర్షికతో ప్రివ్యూ కనిపిస్తుంది</strong>.</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                toggleSwitch.checked = true;
+            }
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }    
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
+</body>
+</html>

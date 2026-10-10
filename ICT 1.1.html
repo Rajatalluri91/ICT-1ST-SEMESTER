@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICT Unit-1 Complete Notes - With Examples</title>
+    <style>
+        /* CSS Variables for Dynamic Theme Switching */
+        :root {
+            --bg-color: #1a202c;
+            --text-color: #e2e8f0;
+            --header-title: #63b3ed;
+            --header-subtext: #a0aec0;
+            --slide-bg: #2d3748;
+            --slide-border: #4a5568;
+            --slide-header-bg: #1a202c;
+            --slide-header-title: #90cdf4;
+            --para-block-bg: #1a202c;
+            --para-block-border: #4299e1;
+            --eng-text-color: #edf2f7;
+            --tel-text-color: #cbd5e0;
+            --tel-text-bg: rgba(66, 153, 225, 0.1);
+            --example-box-bg: #2c3b2d;
+            --example-box-border: #48bb78;
+            --example-box-text: #c6f6d5;
+            --example-box-bold: #68d391;
+            --section-title: #f6ad55;
+            --timeline-line: #4a5568;
+            --table-th-bg: #1a202c;
+            --table-th-text: #63b3ed;
+            --table-td-border: #4a5568;
+            --table-even-bg: #242c3d;
+            --toggle-btn-bg: #3182ce;
+            --toggle-btn-text: #ffffff;
+        }
+
+        /* Light Theme Overrides */
+        [data-theme="light"] {
+            --bg-color: #f7fafc;
+            --text-color: #2d3748;
+            --header-title: #2b6cb0;
+            --header-subtext: #4a5568;
+            --slide-bg: #ffffff;
+            --slide-border: #cbd5e0;
+            --slide-header-bg: #ebf8ff;
+            --slide-header-title: #2b6cb0;
+            --para-block-bg: #f7fafc;
+            --para-block-border: #3182ce;
+            --eng-text-color: #1a202c;
+            --tel-text-color: #2d3748;
+            --tel-text-bg: #ebf8ff;
+            --example-box-bg: #f0fff4;
+            --example-box-border: #38a169;
+            --example-box-text: #22543d;
+            --example-box-bold: #276749;
+            --section-title: #dd6b20;
+            --timeline-line: #cbd5e0;
+            --table-th-bg: #ebf8ff;
+            --table-th-text: #2b6cb0;
+            --table-td-border: #e2e8f0;
+            --table-even-bg: #f7fafc;
+            --toggle-btn-bg: #2b6cb0;
+            --toggle-btn-text: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 15px;
+        }
+
+        .main-header {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            width: 100%;
+            max-width: 950px;
+        }
+
+        .main-header h1 {
+            color: var(--header-title);
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+
+        .main-header p {
+            color: var(--header-subtext);
+            font-size: 1.1rem;
+        }
+
+        /* Toggle Button Container */
+        .theme-toggle-container {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            max-width: 950px;
+            margin-bottom: 15px;
+        }
+
+        .theme-toggle-btn {
+            background-color: var(--toggle-btn-bg);
+            color: var(--toggle-btn-text);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-toggle-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Slide Container Style */
+        .ppt-slide {
+            background: var(--slide-bg);
+            width: 100%;
+            max-width: 950px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            margin-bottom: 35px;
+            border: 1px solid var(--slide-border);
+            overflow: hidden;
+        }
+
+        .slide-header {
+            background: var(--slide-header-bg);
+            padding: 15px 25px;
+            border-bottom: 3px solid #3182ce;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .slide-header h2 {
+            color: var(--slide-header-title);
+            font-size: 1.3rem;
+        }
+
+        .slide-num {
+            background: #3182ce;
+            color: white;
+            padding: 3px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .slide-content {
+            padding: 15px;
+        }
+
+        /* Content Formatting */
+        .para-block {
+            background: var(--para-block-bg);
+            border-left: 4px solid var(--para-block-border);
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .eng-text {
+            color: var(--eng-text-color);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .tel-text {
+            color: var(--tel-text-color);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            background: var(--tel-text-bg);
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        /* Example Box Style */
+        .example-box {
+            background: var(--example-box-bg);
+            border-left: 4px solid var(--example-box-border);
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: var(--example-box-text);
+            margin-top: 8px;
+        }
+
+        .example-box b {
+            color: var(--example-box-bold);
+        }
+
+        .section-title {
+            color: var(--section-title);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+
+        /* Timeline Formatting */
+        .timeline {
+            border-left: 2px solid var(--timeline-line);
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 22px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #f6ad55;
+        }
+
+        .badge-year {
+            background: #dd6b20;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            border: 1px solid var(--table-td-border);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: var(--table-th-bg);
+            color: var(--table-th-text);
+        }
+
+        tr:nth-child(even) {
+            background: var(--table-even-bg);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-header">
+        <h1>Information & Communication Technology (ICT)</h1>
+        <p>UNIT-I</p>
+    </div>
+
+    <!-- Theme Toggle Switch -->
+    <div class="theme-toggle-container">
+        <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()">
+            <span id="themeIcon">☀️</span> <span id="themeText">Light Mode</span>
+        </button>
+    </div>
+
+    <!-- SLIDE 1 -->
+    <div class="ppt-slide">
+        <div class="slide-header">
+            <h2>Essay Question 1: What is Internet? Write the evolution of Internet.</h2>
+            <span class="slide-num">Slide 1</span>
+        </div>
+        <div class="slide-content">
+            <div class="section-title">📌 Definition & Overview (ఇంటర్నెట్ నిర్వచనం):</div>
+            
+            <div class="para-block">
+                <div class="eng-text"><b>Ans:</b> The Internet is the global system of interconnected computer networks that use the Internet protocol suite to link devices worldwide.</div>
+                <div class="tel-text">ఇంటర్నెట్ అనేది ఇంటర్నెట్ ప్రోటోకాల్ సూట్‌ను ఉపయోగించి ప్రపంచవ్యాప్తంగా ఉన్న పరికరాలను అనుసంధానించే ప్రపంచ ఆధారిత కంప్యూటర్ నెట్‌వర్క్‌ల వ్యవస్థ.</div>
+                <div class="example-box">
+                    💡 <b>Example:</b> Mana oorini prapanchamlo unna anni patnalatho kalipina "National Highway System" lantidi Internet. India lo unna mana phone nundi US lo unna Google server ki connect avvadame deeniki udaharana.
+                </div>
+            </div>
+
+            <div class="para-block">
+                <div class="eng-text">The purpose of the internet is to communicate between computers that are interconnected with each other. Internet is accessible to every user all over the world.</div>
+                <div class="tel-text">ఒకదానితో ఒకటి అనుసంధానించబడిన కంప్యూటర్ల మధ్య కమ్యూనికేట్ చేయడమే ఇంటర్నెట్ యొక్క ముఖ్య ఉద్దేశ్యం. ప్రపంచవ్యాప్తంగా ఉన్న ప్రతి వినియోగదారునికి ఇంటర్నెట్ అందుబాటులో ఉంటుంది.</div>
+                <div class="example-box">
+                    💡 <b>Example:</b> WhatsApp lo mana friend ki message pampinappudu, mana phone and vallaphone okadanikokati internet dwara matladukoni message ni చేరవేస్తాయి.
+                </div>
+            </div>
+
+            <div class="para-block">
+                <div class="eng-text">It is a network of networks that consists of private, public, academic, business, and government networks of local to global scope, linked by a broad array of electronic, wireless, and optical networking technologies.</div>
+                <div class="tel-text">ఇది లోకల్ నుండి గ్లోబల్ పరిధి వరకు ఉండే ప్రైవేట్, పబ్లిక్, అకాడెమిక్, బిజినెస్ మరియు ప్రభుత్వ నెట్‌వర్క్‌లతో కూడిన "నెట్‌వర్క్‌ల నెట్‌వర్క్". ఇవి ఎలక్ట్రానిక్, వైర్‌లెస్ మరియు ఆప్టికల్ నెట్‌వర్కింగ్ టెక్నాలజీల ద్వారా అనుసంధానించబడతాయి.</div>
+                <div class="example-box">
+                    💡 <b>Example:</b> College Wi-Fi (Academic), Bank ATM Network (Business), Home Broadband (Private) - ivi anni kalisi pedda Internet ga maratai.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="ppt-slide">
+        <div class="slide-header">
+            <h2>Internet Services & Architecture</h2>
+            <span class="slide-num">Slide 2</span>
+        </div>
+        <div class="slide-content">
+            <div class="para-block">
+                <div class="eng-text">The Internet carries a vast range of information resources and services, such as the inter-linked hypertext documents and applications of the World Wide Web (WWW), electronic mail, telephony and file sharing.</div>
+                <div class="tel-text">ఇంటర్నెట్ వరల్డ్ వైడ్ వెబ్ (WWW) యొక్క పరస్పరం అనుసంధానించబడిన హైపర్‌టెక్స్ట్ డాక్యుమెంట్లు, అప్లికేషన్లు, ఈ-మెయిల్, టెలిఫోనీ మరియు ఫైల్ షేరింగ్ వంటి విస్తృతమైన సమాచార వనరులు మరియు సేవలను అందిస్తుంది.</div>
+                <div class="example-box">
+                    💡 <b>Example:</b>
+                    <ul>
+                        <li><b>WWW:</b> Wikipedia or Khan Academy websites.</li>
+                        <li><b>E-mail:</b> Gmail/Yahoo Mail usage.</li>
+                        <li><b>Telephony:</b> WhatsApp Voice/Video Call or Zoom meeting.</li>
+                        <li><b>File Sharing:</b> Google Drive or Telegram file transfer.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="para-block">
+                <div class="eng-text">Browser is a tool used to access the internet using WWW (World Wide Web) and HTTP (Hyper Text Transfer Protocol). In the browser, the user types the domain name such as www.tn.gov.in, the browser calls a protocol name DNS (Domain Name Server). DNS is used to get the IP address of the domain names.</div>
+                <div class="tel-text">బ్రౌజర్ అనేది WWW మరియు HTTP ప్రోటోకాల్ ఉపయోగించి ఇంటర్నెట్‌ను యాక్సెస్ చేయడానికి వాడే ఒక టూల్. వినియోగదారుడు బ్రౌజర్‌లో www.tn.gov.in వంటి డొమైన్ నేమ్‌ను టైప్ చేసినప్పుడు, బ్రౌజర్ DNS (డొమైన్ నేమ్ సర్వర్) అనే ప్రోటోకాల్‌ను పిలుస్తుంది. డొమైన్ నేమ్‌ల యొక్క IP అడ్రస్‌ను పొందడానికి DNS ఉపయోగపడుతుంది.</div>
+                <div class="example-box">
+                    💡 <b>Example:</b> Mana mobile phone lo "Phone Contacts List" lantidi DNS. Manam "Rajesh" ani search cheste phone auto ga 9876543210 ki call chesinట్లే, Browser lo `google.com` ani kodithe DNS Dooki `142.250.190.46` అనే IP address ki connect chestundi.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="ppt-slide">
+        <div class="slide-header">
+            <h2>Evolution of Internet (ఇంటర్నెట్ పరిణామ క్రమం)</h2>
+            <span class="slide-num">Slide 3</span>
+        </div>
+        <div class="slide-content">
+            <div class="eng-text" style="margin-bottom: 15px;">The concept of Internet was originated in 1969 and has undergone several technological & infrastructural changes as discussed below:</div>
+            <div class="tel-text" style="margin-bottom: 20px;">ఇంటర్నెట్ అనే భావన 1969 లో ప్రారంభమైంది మరియు క్రింద చర్చించినట్లుగా అనేక సాంకేతిక మరియు మౌలిక సదుపాయాల మార్పులకు గురైంది:</div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="badge-year">1958 - ARPA</span>
+                    <div class="eng-text">• Advanced Research Projects Agency (ARPA) was formed in the US to develop technology.</div>
+                    <div class="tel-text">• సాంకేతిక అభివృద్ధి కోసం అమెరికాలో ARPA సంస్థ స్థాపించబడింది.</div>
+                    <div class="example-box">💡 <b>Example:</b> Defense research budget thoti US Military dwaara start cheina oka central research center.</div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="badge-year">1962 / 1965</span>
+                    <div class="eng-text">• Research on packet switching and initial computer network connections.</div>
+                    <div class="tel-text">• కంప్యూటర్ నెట్‌వర్క్ అనుసంధానం మరియు ప్యాకెట్ స్విచింగ్‌పై పరిశోధనలు ప్రారంభమయ్యాయి.</div>
+                    <div class="example-box">💡 <b>Example (Packet Switching):</b> Oka pedda book ni enno chinna envelopes lo alag alaga pampinchi, chivarana anni envelopes ni okagudsi chadavadam lantidi.</div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="badge-year">1969 - ARPANET Origin</span>
+                    <div class="eng-text">• The origin of Internet devised from the concept of Advanced Research Project Agency Network (ARPANET). Developed by US Dept of Defense with 4 nodes (Hosts).</div>
+                    <div class="tel-text">• ARPANET ద్వారా 4 కంప్యూటర్లతో ఇంటర్నెట్ ప్రారంభమైంది. రక్షణ శాఖ మరియు విశ్వవిద్యాలయాల మధ్య రహస్య డేటా మార్పిడికి ఉపయోగించారు.</div>
+                    <div class="example-box">💡 <b>Example:</b> UCLA, Stanford, UC Santa Barbara, University of Utah అనే 4 లాబ్స్ లోని కంప్యూటర్ల మధ్య "LOGIN" అనే పదాన్ని పంపడానికి ప్రయత్నించడం.</div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="badge-year">1972 - Expansion</span>
+                    <div class="eng-text">• ARPANET spread over the globe with 23 nodes located at different countries and thus became known as Internet.</div>
+                    <div class="tel-text">• 1972 లో ARPANET వివిధ దేశాలలో 23 నోడ్స్‌తో విస్తరించింది.</div>
+                    <div class="example-box">💡 <b>Example:</b> America, England, Norway desala lab computers annee wire la dwaara connect avvadam.</div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="badge-year">1983 - NSFNET & TCP/IP</span>
+                    <div class="eng-text">• National Science Foundation Network (NSFNET) created. TCP/IP standard protocols adopted.</div>
+                    <div class="tel-text">• NSFNET ఏర్పాటు చేయబడింది మరియు కమ్యూనికేషన్ కోసం TCP/IP ప్రొటోకాల్‌లు ప్రామాణికంగా మారాయి.</div>
+                    <div class="example-box">💡 <b>Example:</b> Prati car ki Driving Rules okate unnట్లు, prapancham lo ey computer aina TCP/IP అనే నిబంధనల తోనే ఇంటర్నెట్ లో మాట్లాడాలి.</div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="badge-year">1993 / 1995 - WWW & Modern Era</span>
+                    <div class="eng-text">• Invention of TCP/IP, DNS, WWW, browsers, scripting languages provided a medium to publish and access information over the web.</div>
+                    <div class="tel-text">• WWW మరియు బ్రౌజర్‌లు రావడం ద్వారా ఇంటర్నెట్ సామాన్యులకు కూడా అందుబాటులోకి వచ్చింది.</div>
+                    <div class="example-box">💡 <b>Example:</b> Netscape Navigator, Internet Explorer browsers raవడం, Amazon & Yahoo websites start avvadam.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div class="ppt-slide">
+        <div class="slide-header">
+            <h2>Question 2: Define Internet & Features of Internet</h2>
+            <span class="slide-num">Slide 4</span>
+        </div>
+        <div class="slide-content">
+            <div class="para-block">
+                <div class="eng-text"><b>Define Internet:</b> The Internet is a global collection of computer networks that are linked together by devices called routers and use a common set of protocols for data transmission known as TCP/IP.</div>
+                <div class="tel-text">రూటర్లు అనే పరికరాల ద్వారా అనుసంధానించబడి, డేటా ప్రసారం కోసం TCP/IP అనే ఉమ్మడి ప్రోటోకాల్‌లను ఉపయోగించే ప్రపంచవ్యాప్త కంప్యూటర్ నెట్‌వర్క్‌ల సమాహారాన్నే "ఇంటర్నెట్" అంటారు.</div>
+                <div class="example-box">
+                    💡 <b>Example:</b> Mana intlo unna Wi-Fi Router mana mobile, TV, Laptop anitini internet ki connect chestundi.
+                </div>
+            </div>
+
+            <div class="section-title">📊 Key Technical Protocols & Services Summary:</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Protocol / Component</th>
+                        <th>English Description</th>
+                        <th>తెలుగు వివరణ</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>TCP/IP</b></td>
+                        <td>Transmission Control Protocol / Internet Protocol for data packet transmission.</td>
+                        <td>డేటాను చిన్న ప్యాకెట్లుగా విరిచి సరిగ్గా చేరవేస్తుంది.</td>
+                        <td>Postal Courier Service (Addressing & Packaging).</td>
+                    </tr>
+                    <tr>
+                        <td><b>DNS</b></td>
+                        <td>Domain Name Server - Converts website domain names to numerical IP addresses.</td>
+                        <td>వెబ్‌సైట్ పేర్లను IP అడ్రస్‌లుగా మార్చే వ్యవస్థ.</td>
+                        <td>Mobile Phonebook (Name to Number converter).</td>
+                    </tr>
+                    <tr>
+                        <td><b>WWW & HTTP</b></td>
+                        <td>World Wide Web and Hyper Text Transfer Protocol to access and view web pages.</td>
+                        <td>వెబ్ పేజీలను బ్రౌజ్ చేయడానికి వాడే వ్యవస్థ.</td>
+                        <td>Chrome or Edge lo Youtube/Google open cheyadame HTTP/WWW.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- JavaScript for Theme Toggle -->
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const themeIcon = document.getElementById('themeIcon');
+            const themeText = document.getElementById('themeText');
+
+            if (currentTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Light Mode';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark Mode';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q. 17. Social Networking Notes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+            --border-color: #e0e0e0;
+            --header-bg: linear-gradient(135deg, #3b5998 0%, #8b9dc3 100%);
+            --header-text: #ffffff;
+            --shadow: 0 4px 15px rgba(0,0,0,0.08);
+
+            --sn-card: #e3f2fd; --sn-border: #1e88e5;
+            --ps-card: #e8f5e9; --ps-border: #43a047;
+            --nc-card: #fff3e0; --nc-border: #fb8c00;
+            --sc-card: #ffebee; --sc-border: #e53935;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --card-bg: #1e1e1e;
+            --border-color: #333333;
+            --header-bg: linear-gradient(135deg, #182848 0%, #4b6cb7 100%);
+            --header-text: #ffffff;
+            --shadow: 0 4px 15px rgba(0,0,0,0.5);
+
+            --sn-card: #152738; --sn-border: #42a5f5;
+            --ps-card: #182e1c; --ps-border: #66bb6a;
+            --nc-card: #332a15; --nc-border: #ffb74d;
+            --sc-card: #331a1d; --sc-border: #ef5350;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: var(--header-bg);
+            color: var(--header-text);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: left;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 1.05rem;
+            opacity: 0.95;
+        }
+
+        .toggle-container {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .theme-toggle-btn {
+            background: rgba(0, 0, 0, 0.25);
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .theme-toggle-btn:hover {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 15px 25px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid #ccc;
+        }
+
+        .card-sn { background-color: var(--sn-card); border-left-color: var(--sn-border); }
+        .card-ps { background-color: var(--ps-card); border-left-color: var(--ps-border); }
+        .card-nc { background-color: var(--nc-card); border-left-color: var(--nc-border); }
+        .card-sc { background-color: var(--sc-card); border-left-color: var(--sc-border); }
+
+        .card h2 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .eng-text {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .tel-text {
+            display: block;
+            opacity: 0.95;
+            font-size: 0.98rem;
+        }
+
+        strong {
+            color: #d32f2f;
+        }
+
+        [data-theme="dark"] strong {
+            color: #ff6b6b;
+        }
+
+        .image-box {
+            width: 100%;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.04);
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        [data-theme="dark"] .image-box {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .image-caption {
+            font-size: 0.85rem;
+            margin-top: 6px;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding-top: 55px;
+            }
+            .toggle-container {
+                top: 10px;
+                right: 50%;
+                transform: translateX(50%);
+            }
+            body {
+                padding: 8px;
+            }
+            .card {
+                padding: 12px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <div class="toggle-container">
+                <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()">
+                    <span id="toggleIcon">🌙</span> <span id="toggleText">Dark Mode</span>
+                </button>
+            </div>
+            <h1>Q. 17. What is social networking ? Explain.</h1>
+            <p>సోషల్ నెట్‌వర్కింగ్ అంటే ఏమిటి? వివరించండి.</p>
+        </header>
+
+        <!-- 1. Definition -->
+        <div class="card card-sn">
+            <h2>1. What is Social Networking? / సోషల్ నెట్‌వర్కింగ్ నిర్వచనం</h2>
+            <ul>
+                <li>
+                    <span class="eng-text">Social networking on <strong>social media websites</strong> involves the use of the internet to connect users with their <strong>friends, family and acquaintances</strong>.</span>
+                    <span class="tel-text">సోషల్ మీడియా వెబ్‌సైట్‌లలో సోషల్ నెట్‌వర్కింగ్ అనేది వినియోగదారులను వారి <strong>స్నేహితులు, కుటుంబ సభ్యులు మరియు పరిచయస్తులతో</strong> అనుసంధానించడానికి ఇంటర్నెట్‌ను ఉపయోగించడం.</span>
+                </li>
+                <li>
+                    <span class="eng-text">Social media websites are not necessarily about meeting new people online, although this does happen.</span>
+                    <span class="tel-text">సోషల్ మీడియా వెబ్‌సైట్‌లు ఆన్‌లైన్‌లో కొత్త వ్యక్తులను కలవడం గురించే కానవసరం లేదు, అయినప్పటికీ అలా కూడా జరుగుతుంది.</span>
+                </li>
+                <li>
+                    <span class="eng-text">Instead, they are primarily about connecting with friends, family and acquaintances you already have in <strong>real life</strong>.</span>
+                    <span class="tel-text">బదులుగా, ఇవి ప్రధానంగా <strong>నిజ జీవితంలో</strong> మనకు ఇప్పటికే పరిచయం ఉన్న స్నేహితులు, కుటుంబ సభ్యులు మరియు బంధువులతో కనెక్ట్ అవ్వడం గురించే.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 2. Popular Sites & Features -->
+        <div class="card card-ps">
+            <h2>2. Popular Sites & Features / ప్రసిద్ధ సైట్లు మరియు ఫీచర్లు</h2>
+            <ul>
+                <li>
+                    <span class="eng-text">The most well-known social media sites are <strong>Facebook, Twitter, Instagram and LinkedIn</strong>.</span>
+                    <span class="tel-text">అత్యంత ప్రసిద్ధ సోషల్ మీడియా సైట్లు <strong>Facebook, Twitter, Instagram మరియు LinkedIn</strong>.</span>
+                </li>
+                <li>
+                    <span class="eng-text">These sites allow you to <strong>share photos, videos and information, organise events, chat, and play online games</strong>.</span>
+                    <span class="tel-text">ఈ సైట్‌లు <strong>ఫోటోలు, వీడియోలు మరియు సమాచారాన్ని పంచుకోవడానికి, ఈవెంట్‌లను నిర్వహించడానికి, చాట్ చేయడానికి మరియు ఆన్‌లైన్ గేమ్‌లు ఆడటానికి</strong> మిమ్మల్ని అనుమతిస్తాయి.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 3. Network of Connections -->
+        <div class="card card-nc">
+            <h2>3. Network of Connections / కనెక్షన్ల నెట్‌వర్క్</h2>
+            <ul>
+                <li>
+                    <span class="eng-text">Each of your "friends" (Facebook) or "followers" (Twitter) will be connected to each other, forming a <strong>network of connections</strong>.</span>
+                    <span class="tel-text">మీ "స్నేహితులు" (Facebook) లేదా "ఫాలోవర్లు" (Twitter) ప్రతి ఒక్కరూ ఒకరితో ఒకరు కనెక్ట్ అయి ఉండి, ఒక <strong>కనెక్షన్ల నెట్‌వర్క్‌ను</strong> ఏర్పరుస్తారు.</span>
+                </li>
+                <li>
+                    <span class="eng-text">Useful for spreading information, pictures, videos, and staying in touch with people you wouldn't normally get to interact with all the time.</span>
+                    <span class="tel-text">సమాచారం, చిత్రాలు మరియు వీడియోలను విస్తరించడానికి మరియు ఎల్లప్పుడూ టచ్‌లో ఉండలేని వ్యక్తులతో నిరంతరం టచ్‌లో ఉండటానికి ఉపయోగపడుతుంది.</span>
+                </li>
+                <li>
+                    <span class="eng-text">For example, you can easily set up a <strong>Facebook page</strong> with details and pictures of an event (like a <strong>school fete</strong>) and send out <strong>invitations</strong>.</span>
+                    <span class="tel-text">ఉదాహరణకు, మీరు ఒక ఈవెంట్ (పాఠశాల ఫేట్ వంటివి) కోసం వివరాలు మరియు చిత్రాలతో <strong>Facebook పేజీని</strong> సులభంగా సెటప్ చేసి, <strong>ఆహ్వానాలను</strong> పంపవచ్చు.</span>
+                </li>
+            </ul>
+
+            <div class="image-box">
+                <svg width="300" height="60" viewBox="0 0 300 60" style="max-width: 100%;">
+                    <circle cx="50" cy="30" r="18" fill="#1e88e5" opacity="0.3" stroke="#1e88e5" stroke-width="2"/>
+                    <text x="50" y="35" font-size="12" text-anchor="middle" fill="currentColor" font-weight="bold">User</text>
+                    <line x1="68" y1="30" x2="112" y2="30" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="130" cy="30" r="18" fill="#fb8c00" opacity="0.3" stroke="#fb8c00" stroke-width="2"/>
+                    <text x="130" y="35" font-size="12" text-anchor="middle" fill="currentColor" font-weight="bold">Friends</text>
+                    <line x1="148" y1="30" x2="192" y2="30" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="210" cy="30" r="18" fill="#43a047" opacity="0.3" stroke="#43a047" stroke-width="2"/>
+                    <text x="210" y="35" font-size="12" text-anchor="middle" fill="currentColor" font-weight="bold">Network</text>
+                </svg>
+                <div class="image-caption">Diagram: Social Networking Connections Flow</div>
+            </div>
+        </div>
+
+        <!-- 4. Security & Privacy -->
+        <div class="card card-sc">
+            <h2>4. Security & Privacy / భద్రత మరియు గోప్యత</h2>
+            <ul>
+                <li>
+                    <span class="eng-text">Just like other technology (e.g., mobile phones), social media is a very effective tool for connecting with people, but there are a few <strong>privacy and security issues</strong> worth keeping in mind.</span>
+                    <span class="tel-text">మొబైల్ ఫోన్‌ల వంటి ఇతర సాంకేతికత లాగే, ప్రజలతో కనెక్ట్ అవ్వడానికి సోషల్ మీడియా చాలా ప్రభావవంతమైన సాధనం, అయినప్పటికీ గుర్తుంచుకోవలసిన కొన్ని <strong>గోప్యత మరియు భద్రతా సమస్యలు</strong> ఉన్నాయి.</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', targetTheme);
+            
+            const toggleIcon = document.getElementById('toggleIcon');
+            const toggleText = document.getElementById('toggleText');
+            
+            if (targetTheme === 'dark') {
+                toggleIcon.textContent = '☀️';
+                toggleText.textContent = 'Light Mode';
+            } else {
+                toggleIcon.textContent = '🌙';
+                toggleText.textContent = 'Dark Mode';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Addresses and IPv6 Notes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+            --border-color: #e0e0e0;
+            --header-bg: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            --header-text: #ffffff;
+            --shadow: 0 4px 15px rgba(0,0,0,0.08);
+
+            /* Card Accent Colors */
+            --intro-card: #e3f2fd;
+            --intro-border: #2196f3;
+            --struct-card: #e8f5e9;
+            --struct-border: #4caf50;
+            --role-card: #fff3e0;
+            --role-border: #ff9800;
+            --domain-card: #f3e5f5;
+            --domain-border: #9c27b0;
+            --type-card: #e0f2f1;
+            --type-border: #009688;
+            --ipv6-card: #fbe9e7;
+            --ipv6-border: #ff5722;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --card-bg: #1e1e1e;
+            --border-color: #333333;
+            --header-bg: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            --header-text: #ffffff;
+            --shadow: 0 4px 15px rgba(0,0,0,0.5);
+
+            /* Dark Mode Card Backgrounds */
+            --intro-card: #1a2634;
+            --intro-border: #64b5f6;
+            --struct-card: #1b2e1e;
+            --struct-border: #81c784;
+            --role-card: #332314;
+            --role-border: #ffb74d;
+            --domain-card: #291a2c;
+            --domain-border: #ba68c8;
+            --type-card: #122826;
+            --type-border: #4db6ac;
+            --ipv6-card: #331e1a;
+            --ipv6-border: #ff8a65;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Layout */
+        header {
+            background: var(--header-bg);
+            color: var(--header-text);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            text-align: left;
+        }
+
+        /* Toggle Button */
+        .toggle-container {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .theme-toggle-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .theme-toggle-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Cards Layout */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 15px 25px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid #ccc;
+        }
+
+        .card-intro { background-color: var(--intro-card); border-left-color: var(--intro-border); }
+        .card-struct { background-color: var(--struct-card); border-left-color: var(--struct-border); }
+        .card-role { background-color: var(--role-card); border-left-color: var(--role-border); }
+        .card-domain { background-color: var(--domain-card); border-left-color: var(--domain-border); }
+        .card-type { background-color: var(--type-card); border-left-color: var(--type-border); }
+        .card-ipv6 { background-color: var(--ipv6-card); border-left-color: var(--ipv6-border); }
+
+        .card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .eng-text {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .tel-text {
+            display: block;
+            opacity: 0.95;
+            font-size: 0.98rem;
+        }
+
+        strong {
+            color: #d32f2f;
+        }
+
+        [data-theme="dark"] strong {
+            color: #ff6b6b;
+        }
+
+        /* Image Box Container */
+        .image-box {
+            width: 100%;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.04);
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        [data-theme="dark"] .image-box {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .image-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        .image-caption {
+            font-size: 0.85rem;
+            margin-top: 6px;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        /* Dynamic IP sub-list */
+        .sub-list {
+            margin-top: 8px;
+            margin-left: 15px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header {
+                padding-top: 50px;
+            }
+            .toggle-container {
+                top: 10px;
+                right: 50%;
+                transform: translateX(50%);
+            }
+            body {
+                padding: 10px;
+            }
+            .card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Header Section -->
+        <header>
+            <div class="toggle-container">
+                <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()">
+                    <span id="toggleIcon">🌙</span> <span id="toggleText">Dark Mode</span>
+                </button>
+            </div>
+            <h1>Q.3. Explain about IP addresses and about IP V6</h1>
+            <p>IP చిరునామాలు మరియు IP V6 గురించిన పూర్తి వివరణ</p>
+        </header>
+
+        <!-- Card 1: Introduction -->
+        <div class="card card-intro">
+            <h2>1. Introduction to IP Address / IP అడ్రస్ పరిచయం</h2>
+            <ul>
+                <li>
+                    <span class="eng-text">Each computer and router on the Internet must have a <strong>name</strong> so that it can be <strong>uniquely identified</strong>.</span>
+                    <span class="tel-text">ఇంటర్నెట్‌లోని ప్రతి కంప్యూటర్ మరియు రూటర్‌ను ప్రత్యేకంగా గుర్తించడానికి దానికి ఒక <strong>పేరు (name)</strong> ఉండాలి.</span>
+                </li>
+                <li>
+                    <span class="eng-text"><strong>IP addresses</strong> are <strong>numerical names</strong> that uniquely identify each computer on the Internet.</span>
+                    <span class="tel-text"><strong>IP అడ్రస్‌లు</strong> అనేవి ఇంటర్నెట్‌లోని ప్రతి కంప్యూటర్‌ను ప్రత్యేకంగా గుర్తించే <strong>సంఖ్యాపరమైన పేర్లు (numerical names)</strong>.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Card 2: Structure & Size -->
+        <div class="card card-struct">
+            <h2>2. Structure & Size / నిర్మాణం మరియు పరిమాణం</h2>
+            <ul>
+                <li>
+                    <span class="eng-text">An IP Address consists of <strong>32 bits</strong>, or <strong>four bytes</strong>.</span>
+                    <span class="tel-text">ఒక IP అడ్రస్ <strong>32 బిట్‌లు (bits)</strong> లేదా <strong>నాలుగు బైట్‌లను (four bytes)</strong> కలిగి ఉంటుంది.</span>
+                </li>
+                <li>
+                    <span class="eng-text">Each IP address consists of a <strong>network component</strong> and a <strong>host component</strong>.</span>
+                    <span class="tel-text">ప్రతి IP అడ్రస్‌లో <strong>నెట్‌వర్క్ భాగం (network component)</strong> మరియు <strong>హోస్ట్ భాగం (host component)</strong> అని రెండు భాగాలు ఉంటాయి.</span>
+                </li>
+            </ul>
+
+            <!-- Image Placeholder 1: 32 bit structure -->
+            <div class="image-box">
+                <svg width="280" height="60" viewBox="0 0 280 60" style="max-width: 100%;">
+                    <rect x="5" y="5" width="130" height="35" fill="#4caf50" opacity="0.2" stroke="#4caf50" stroke-width="2"/>
+                    <text x="70" y="27" font-size="14" text-anchor="middle" fill="currentColor" font-weight="bold">network</text>
+                    <rect x="135" y="5" width="140" height="35" fill="#2196f3" opacity="0.2" stroke="#2196f3" stroke-width="2"/>
+                    <text x="205" y="27" font-size="14" text-anchor="middle" fill="currentColor" font-weight="bold">host</text>
+                    <line x1="5" y1="50" x2="275" y2="50" stroke="currentColor" stroke-width="1.5"/>
+                    <text x="140" y="47" font-size="12" text-anchor="middle" fill="currentColor">32 bits</text>
+                </svg>
+                <div class="image-caption">Diagram: Structure of 32-bit IP Address (Network and Host components)</div>
+            </div>
+        </div>
+
+        <!-- Card 3: Role & Management -->
+        <div class="card card-role">
+            <h2>3. Role & Management / పాత్ర మరియు నిర్వహణ</h2>
+            <ul>
+                <li>
+                    <span class="eng-text">IP addresses play a <strong>vital role</strong> in the <strong>routing of packets</strong> over the internet.</span>
+                    <span class="tel-text">ఇంటర్నెట్‌లో డేటా ప్యాకెట్లను సరైన మార్గంలో పంపడంలో (routing of packets) IP అడ్రస్‌లు <strong>కీలక పాత్ర</strong> పోషిస్తాయి.</span>
+                </li>
+                <li>
+                    <span class="eng-text"><strong>Source and destination IP addresses</strong> are included in each packet to provide direction on where it should go.</span>
+                    <span class="tel-text">ప్యాకెట్ ఎక్కడికి వెళ్లాలో దిశను నిర్దేశించడానికి ప్రతి ప్యాకెట్‌లో <strong>సోర్స్ (Source)</strong> మరియు <strong>డెస్టినేషన్ (Destination) IP అడ్రస్‌లు</strong> ఉంటాయి.</span>
+                </li>
+                <li>
+                    <span class="eng-text">A <strong>central authority</strong> manages IP addresses to avoid conflicts.</span>
+                    <span class="tel-text">అడ్రస్‌ల మధ్య వివాదాలు లేదా సమస్యలు రాకుండా ఒక <strong>కేంద్ర సంస్థ (central authority)</strong> వీటిని నిర్వహిస్తుంది.</span>
+                </li>
+                <li>
+                    <span class="eng-text">The <strong>Network Information Center (NIC)</strong> is in charge of assigning IP addresses.</span>
+                    <span class="tel-text"><strong>Network Information Center (NIC)</strong> సంస్థ IP అడ్రస్‌లను కేటాయించే బాధ్యతను చూసుకుంటుంది.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Card 4: IP Address vs Domain Name -->
+        <div class="card card-domain">
+            <h2>4. IP Address vs Domain Name / IP అడ్రస్ మరియు డొమైన్ నేమ్</h2>
+            <ul>
+                <li>
+                    <span class="eng-text">IP addresses are <strong>32-bit numbers</strong>, whereas domain names are <strong>easy-to-remember symbolic strings</strong>.</span>
+                    <span class="tel-text">IP అడ్రస్‌లు <strong>32-బిట్ సంఖ్యలుగా</strong> ఉంటాయి, కానీ డొమైన్ పేర్లు (Domain Names) సులభంగా గుర్తుంచుకోగలిగే <strong>అక్షర రూపంలో (symbolic strings)</strong> ఉంటాయి.</span>
+                </li>
+                <li>
+                    <span class="eng-text">There is a <strong>relationship</strong> between IP addresses and domain names.</span>
+                    <span class="tel-text">IP అడ్రస్‌లకు మరియు డొమైన్ పేర్లకు మధ్య పరస్పర <strong>సంబంధం</strong> ఉంటుంది.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Card 5: Types of IP Addresses -->
+        <div class="card card-type">
+            <h2>5. Types of IP Addresses / IP అడ్రస్‌ల రకాలు</h2>
+            <p style="margin-bottom: 10px;"><strong>There are two types of IP address:</strong></p>
+            <ul class="sub-list">
+                <li>
+                    <span class="eng-text"><strong>(1) Static IP address:</strong> A permanently assigned IP address given to a computer or router connected to the internet.</span>
+                    <span class="tel-text"><strong>(1) స్టాటిక్ IP అడ్రస్:</strong> ఇంటర్నెట్‌కు కనెక్ట్ అయిన కంప్యూటర్ లేదా రూటర్‌కు <strong>శాశ్వతంగా (permanently)</strong> కేటాయించబడే IP అడ్రస్‌ను స్టాటిక్ IP అడ్రస్ అంటారు.</span>
+                </li>
+                <li style="margin-top: 10px;">
+                    <span class="eng-text"><strong>(2) Dynamic IP address:</strong> Assigned temporarily from the ISP's pool of IP addresses each time you connect to the internet.</span>
+                    <span class="tel-text"><strong>(2) డైనమిక్ IP అడ్రస్:</strong> మీరు ఇంటర్నెట్‌కు కనెక్ట్ అయిన ప్రతిసారీ ISP (Internet Service Provider) తన దగ్గర ఉన్న అడ్రస్‌ల పూల్ నుండి తాత్కాలికంగా కేటాయించే <strong>వేర్వేరు IP అడ్రస్‌ను</strong> డైనమిక్ IP అడ్రస్ అంటారు.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Card 6: About IPv6 -->
+        <div class="card card-ipv6">
+            <h2>6. About IPv6 / IPv6 గురించి</h2>
+            <ul>
+                <li>
+                    <span class="eng-text"><strong>IPv6</strong> is the <strong>latest version</strong> of the IP routing protocol needed to accommodate increasing internet demands.</span>
+                    <span class="tel-text">పెరుగుతున్న ఇంటర్నెట్ అవసరాలను తీర్చడానికి అందుబాటులోకి వచ్చిన IP రౌటింగ్ ప్రోటోకాల్ యొక్క <strong>తాజా వెర్షన్ IPv6</strong>.</span>
+                </li>
+            </ul>
+
+            <h3 style="margin: 15px 0 10px 0; font-size: 1.1rem; color: var(--ipv6-border);">Major Changes in IPv6 / IPv6 లోని ప్రధాన మార్పులు:</h3>
+            
+            <ul class="sub-list">
+                <li>
+                    <span class="eng-text"><strong>(1) More addresses:</strong> Increased IP address size from <strong>32 to 128 bits</strong>.</span>
+                    <span class="tel-text"><strong>(1) మరిన్ని చిరునామాలు:</strong> IP అడ్రస్ పరిమాణాన్ని <strong>32 బిట్ల నుండి 128 బిట్లకు</strong> పెంచారు.</span>
+                </li>
+                <li style="margin-top: 10px;">
+                    <span class="eng-text"><strong>(2) Simplified IP headers:</strong> The number of header fields needed in an IP packet will be <strong>reduced</strong>.</span>
+                    <span class="tel-text"><strong>(2) సరళీకృత IP హెడర్‌లు:</strong> IP ప్యాకెట్‌లో అవసరమయ్యే హెడర్ ఫీల్డ్‌ల సంఖ్యను <strong>తగ్గించారు</strong>.</span>
+                </li>
+                <li style="margin-top: 10px;">
+                    <span class="eng-text"><strong>(3) Added Security features:</strong> Provides greater support for <strong>privacy and security</strong>.</span>
+                    <span class="tel-text"><strong>(3) అదనపు భద్రతా ఫీచర్లు:</strong> గోప్యత (privacy) మరియు భద్రతకు (security) మరింత మెరుగైన మద్దతును అందిస్తుంది.</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- JavaScript for Dark/Light Mode Toggle -->
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', targetTheme);
+            
+            const toggleIcon = document.getElementById('toggleIcon');
+            const toggleText = document.getElementById('toggleText');
+            
+            if (targetTheme === 'dark') {
+                toggleIcon.textContent = '☀️';
+                toggleText.textContent = 'Light Mode';
+            } else {
+                toggleIcon.textContent = '🌙';
+                toggleText.textContent = 'Dark Mode';
+            }
+        }
+    </script>
+</body>
+</html>

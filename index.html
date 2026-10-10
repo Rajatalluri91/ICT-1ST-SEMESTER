@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b1020">
+    <meta name="description" content="Vyshnavi Degree College ICT Study Portal">
+    <title>Vyshnavi Degree College - ICT & Study Portal</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root{
+            --bg:#070b16; --panel:rgba(15,23,42,.72); --panel2:rgba(20,29,51,.82);
+            --line:rgba(148,163,184,.13); --text:#f8fafc; --muted:#94a3b8;
+            --primary:#ff8a00; --primary2:#ffb347; --blue:#60a5fa; --purple:#a78bfa;
+            --green:#34d399; --shadow:0 20px 60px rgba(0,0,0,.32);
+        }
+        *{box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{
+            margin:0; min-height:100vh; color:var(--text);
+            font-family:Inter,"Anek Telugu",sans-serif;
+            background: var(--bg);
+            overflow-x:hidden;
+        }
+        body:before{
+            content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;
+            background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+            background-size:34px 34px;mask-image:linear-gradient(to bottom,#000,transparent 90%);
+        }
+        button,input{font:inherit}
+        button,a{ -webkit-tap-highlight-color:transparent }
+        .topbar{
+            position:sticky;top:0;z-index:100;
+            border-bottom:1px solid var(--line);
+            background:rgba(7,11,22,.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+        }
+        .top-inner{max-width:1100px;margin:auto;padding:14px 18px;display:flex;align-items:center;gap:12px;min-height:72px}
+        .back-btn{
+            border:1px solid var(--line);background:rgba(30,41,59,.7);color:#cbd5e1;
+            width:42px;height:42px;border-radius:14px;cursor:pointer;transition:.25s;box-shadow:0 8px 24px rgba(0,0,0,.18)
+        }
+        .back-btn:hover{background:rgba(51,65,85,.9);color:white;transform:translateX(-2px)}
+        .brand{flex:1;text-align:center;display:flex;justify-content:center;align-items:center;gap:10px}
+        .brand-icon{
+            width:40px;height:40px;border-radius:13px;display:grid;place-items:center;color:#111827;
+            background:linear-gradient(135deg,var(--primary),var(--primary2));box-shadow:0 8px 28px rgba(255,138,0,.28)
+        }
+        .brand-title{font-size:16px;font-weight:800;letter-spacing:.5px}
+        .brand-sub{font-size:10px;color:var(--muted);letter-spacing:1.4px;margin-top:2px;text-transform:uppercase}
+        .header-spacer{width:42px}
+        .page{max-width:1100px;margin:auto;padding:28px 18px 50px}
+        .hero{
+            position:relative;overflow:hidden;border:1px solid var(--line);border-radius:28px;padding:25px;
+            background:linear-gradient(135deg,rgba(30,41,59,.75),rgba(15,23,42,.54));
+            box-shadow:var(--shadow);margin-bottom:20px
+        }
+        .hero-row{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:18px}
+        .eyebrow{font-size:11px;font-weight:800;letter-spacing:1.8px;color:var(--primary2);text-transform:uppercase}
+        .hero h2{margin:7px 0 5px;font-size:clamp(20px,3.5vw,30px);line-height:1.2}
+        .hero p{margin:0;color:var(--muted);font-size:13px}
+        .fire{
+            width:58px;height:58px;border-radius:20px;display:grid;place-items:center;flex:none;
+            background:linear-gradient(135deg,rgba(255,138,0,.2),rgba(255,179,71,.06));
+            border:1px solid rgba(255,138,0,.25);color:var(--primary2);font-size:22px;box-shadow:0 12px 35px rgba(255,138,0,.12)
+        }
+        .search-wrap{position:relative;margin-bottom:22px}
+        .search{
+            width:100%;height:54px;padding:0 52px 0 48px;color:white;outline:none;
+            background:rgba(15,23,42,.78);border:1px solid var(--line);border-radius:18px;
+            box-shadow:0 12px 35px rgba(0,0,0,.18);transition:.25s
+        }
+        .search:focus{border-color:rgba(255,138,0,.55);box-shadow:0 0 0 4px rgba(255,138,0,.08),0 15px 40px rgba(0,0,0,.25)}
+        .search::placeholder{color:#64748b}
+        .search-icon{position:absolute;left:18px;top:18px;color:#64748b}
+        .clear-search{display:none;position:absolute;right:14px;top:9px;width:36px;height:36px;border:0;border-radius:12px;background:#1e293b;color:#94a3b8;cursor:pointer}
+        .section-head{display:flex;align-items:end;justify-content:space-between;margin:0 2px 12px}
+        .section-head h3{margin:0;font-size:13px;color:#cbd5e1;letter-spacing:.4px}
+        .count{font-size:11px;color:#64748b}
+        .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+        .card{
+            position:relative;overflow:hidden;text-align:left;width:100%;cursor:pointer;
+            border:1px solid var(--line);border-radius:22px;padding:17px;
+            color:var(--text);background:linear-gradient(145deg,rgba(15,23,42,.88),rgba(17,24,39,.66));
+            display:flex;align-items:center;justify-content:space-between;gap:14px;
+            transition:transform .25s,border-color .25s,background .25s,box-shadow .25s;
+            box-shadow:0 10px 35px rgba(0,0,0,.16)
+        }
+        .card:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent,rgba(255,255,255,.045),transparent);transform:translateX(-120%);transition:.6s}
+        .card:hover{transform:translateY(-4px);border-color:rgba(255,138,0,.38);box-shadow:0 18px 45px rgba(0,0,0,.28)}
+        .card:hover:before{transform:translateX(120%)}
+        .card-main{display:flex;align-items:center;gap:14px;min-width:0}
+        .subject-icon{width:54px;height:54px;padding:7px;object-fit:contain;border-radius:17px;background:rgba(255,255,255,.045);border:1px solid var(--line);flex:none}
+        .card-title{font-weight:700;font-size:14px;line-height:1.45;word-break:break-word}
+        .arrow{
+            width:38px;height:38px;border-radius:13px;display:grid;place-items:center;flex:none;
+            color:#94a3b8;background:#172033;border:1px solid var(--line);transition:.25s
+        }
+        .card:hover .arrow{background:var(--primary);color:#111827;border-color:var(--primary);transform:translateX(2px)}
+        .crumb{
+            display:flex;align-items:center;gap:12px;margin-bottom:15px;padding:15px 17px;border:1px solid var(--line);
+            border-radius:20px;background:rgba(15,23,42,.7);box-shadow:0 10px 30px rgba(0,0,0,.14)
+        }
+        .crumb-icon{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:rgba(255,138,0,.12);color:var(--primary2);flex:none}
+        .crumb h2{margin:0;font-size:15px}.crumb p{margin:3px 0 0;color:#64748b;font-size:11px}
+        .list{display:grid;gap:11px}
+        .list-card{
+            width:100%;border:1px solid var(--line);background:rgba(15,23,42,.72);border-radius:19px;
+            padding:15px 16px;display:flex;align-items:center;justify-content:space-between;gap:15px;
+            color:inherit;text-decoration:none;text-align:left;cursor:pointer;transition:.25s;box-shadow:0 8px 28px rgba(0,0,0,.12)
+        }
+        .list-card:hover{transform:translateX(4px);background:rgba(25,36,58,.9);border-color:rgba(96,165,250,.34)}
+        .list-left{display:flex;align-items:center;gap:13px;min-width:0;flex:1}
+        .mini-icon{width:39px;height:39px;border-radius:12px;display:grid;place-items:center;background:#172033;color:#94a3b8;flex:none;border:1px solid var(--line)}
+        .list-title{font-size:13px;font-weight:600;line-height:1.55;word-break:break-word}
+        .action-group{display:flex;align-items:center;gap:8px;flex:none}
+        .action{
+            padding:9px 12px;border-radius:12px;border:1px solid rgba(52,211,153,.2);
+            background:rgba(52,211,153,.09);color:#6ee7b7;font-size:11px;font-weight:700;display:flex;align-items:center;gap:7px;white-space:nowrap;text-decoration:none
+        }
+        .list-card:hover .action{background:#10b981;color:#04130d;border-color:#10b981}
+        .print-action{
+            padding:9px 12px;border-radius:12px;border:1px solid rgba(96,165,250,.2);
+            background:rgba(96,165,250,.09);color:#93c5fd;font-size:11px;font-weight:700;display:flex;align-items:center;gap:7px;white-space:nowrap;text-decoration:none
+        }
+        .list-card:hover .print-action{background:#3b82f6;color:#ffffff;border-color:#3b82f6}
+        .empty{padding:45px 20px;text-align:center;border:1px dashed #334155;border-radius:22px;color:#64748b}
+        footer{text-align:center;color:#475569;font-size:11px;padding:20px;border-top:1px solid var(--line)}
+        .hidden{display:none!important}
+        @media(max-width:700px){
+            .page{padding:20px 13px 35px}.top-inner{padding:11px 13px;min-height:64px}
+            .brand-title{font-size:13px}.brand-sub{display:none}.brand-icon{width:36px;height:36px;border-radius:12px}
+            .hero{padding:20px;border-radius:23px}.hero h2{font-size:20px}.grid{grid-template-columns:1fr;gap:10px}
+            .card{padding:14px;border-radius:18px}.subject-icon{width:48px;height:48px}
+            .action, .print-action{padding:8px 9px;font-size:10px}.list-card{padding:13px;border-radius:17px}
+            .action-group{gap:5px}
+        }
+        @media(max-width:430px){.list-title{font-size:12px}}
+    </style>
+</head>
+
+<body>
+<header class="topbar">
+    <div class="top-inner">
+        <button id="backButton" class="back-btn hidden" onclick="goBack()" aria-label="Go back">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <div class="brand">
+            <div class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div>
+                <div class="brand-title">VYSHNAVI DEGREE COLLEGE</div>
+                <div class="brand-sub">ICT & Study Portal</div>
+            </div>
+        </div>
+        <div class="header-spacer"></div>
+    </div>
+</header>
+
+<main class="page">
+    <section id="statsBanner" class="hero">
+        <div class="hero-row">
+            <div>
+                <div class="eyebrow">Vyshnavi Degree College</div>
+                <h2>ICT & Academic Study Notes</h2>
+                <p>Explore your subjects, read notes online, and download or print materials instantly.</p>
+            </div>
+            <div class="fire"><i class="fa-solid fa-fire-flame-curved"></i></div>
+        </div>
+    </section>
+
+    <div id="searchContainer" class="search-wrap">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input id="searchInput" class="search" type="search" autocomplete="off"
+               placeholder="Search subjects or topics..." oninput="filterSubjects()">
+        <button id="clearSearch" class="clear-search" onclick="clearSearch()" aria-label="Clear search">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <div id="appContainer"></div>
+</main>
+
+<footer>&copy; 2026 Vyshnavi Degree College • Academic Study Portal</footer>
+
+<script>
+    const dscData = [
+        {
+            subjectName: "Information & Communication Technology (ICT)",
+            icon: "https://img.icons8.com/color/96/laptop.png",
+            classes: [
+                {
+                    className: "DEGREE 1ST SEMESTER SKILL PAPER",
+                    sections: [
+                        {
+                            sectionName: "UNIT 1",
+                            lessons: [
+                                { title: "Q.1. What is Internet? Write the evolution of Internet.", githubLink: "#", printable: true },
+								{ title: "Q.3. Explain about IP addresses and about IP V6", githubLink: "#", printable: true },
+								{ title: "Q. 5. What is search engine ? How it works ?", githubLink: "#", printable: true },
+								{ title: "Q.7. What is a browser? Explain its operation.", githubLink: "#", printable: true },
+								{ title: "Q. 8. What are the various types of browsers? Explain.", githubLink: "#", printable: true },
+								{ title: "Q. 17. What is social networking ? Explain.", githubLink: "#", printable: true },
+								{ title: "Q.19. What are the social networking Apps?", githubLink: "#", printable: true }
+                            ]
+                        },
+						{
+                            sectionName: "UNIT 2",
+                            lessons: [
+                                { title: "Q.8 What are the various types of browsers? (Desktop, Mobile & Specialized)", githubLink: "#", printable: true }
+                            ]
+                        },
+						{
+                            sectionName: "UNIT 3",
+                            lessons: [
+                                { title: "Q.8 What are the various types of browsers? (Desktop, Mobile & Specialized)", githubLink: "#", printable: true }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ];
+
+let currentView='subjects';
+let selectedSubjectIndex=null;
+let selectedClassIndex=null;
+let selectedSectionIndex=null;
+
+function esc(value){
+    return String(value).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+}
+
+function setChrome(){
+    const isHome=currentView==='subjects';
+    document.getElementById('backButton').classList.toggle('hidden',isHome);
+    document.getElementById('searchContainer').classList.toggle('hidden',!isHome);
+    document.getElementById('statsBanner').classList.toggle('hidden',!isHome);
+}
+
+function renderApp(filteredData=dscData){
+    const c=document.getElementById('appContainer');
+    c.innerHTML='';
+    setChrome();
+
+    if(currentView==='subjects'){
+        const q=document.getElementById('searchInput').value.trim();
+        let html=`<div class="section-head"><h3>Explore Subjects</h3><span class="count">${filteredData.length} subject${filteredData.length===1?'':'s'}</span></div><div class="grid">`;
+        if(!filteredData.length) html+=`<div class="empty" style="grid-column:1/-1"><i class="fa-solid fa-magnifying-glass" style="font-size:25px;margin-bottom:10px"></i><div>No subjects found for “${esc(q)}”</div></div>`;
+        filteredData.forEach(sub=>{
+            const originalIndex=dscData.findIndex(s=>s.subjectName===sub.subjectName);
+            html+=`<button class="card" onclick="openSubject(${originalIndex})">
+                <div class="card-main">
+                    <img class="subject-icon" src="${sub.icon}" alt="" loading="lazy">
+                    <div class="card-title">${esc(sub.subjectName)}</div>
+                </div>
+                <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </button>`;
+        });
+        html+='</div>'; c.innerHTML=html; return;
+    }
+
+    const sub=dscData[selectedSubjectIndex];
+    if(currentView==='classes'){
+        c.innerHTML=`${crumb(`<i class="fa-solid fa-layer-group"></i>`,sub.subjectName,'Select your class')}<div class="list">
+            ${sub.classes.map((cls,i)=>`<button class="list-card" onclick="openClass(${i})"><div class="list-left"><div class="mini-icon"><i class="fa-solid fa-graduation-cap"></i></div><div class="list-title">${esc(cls.className)}</div></div><div class="arrow"><i class="fa-solid fa-chevron-right"></i></div></button>`).join('')}
+        </div>`; return;
+    }
+
+    const cls=sub.classes[selectedClassIndex];
+    if(currentView==='sections'){
+        c.innerHTML=`${crumb(`<i class="fa-solid fa-folder-open"></i>`,cls.className,'Select a section')}<div class="list">
+            ${cls.sections.map((sec,i)=>`<button class="list-card" onclick="openSection(${i})"><div class="list-left"><div class="mini-icon"><i class="fa-solid fa-book-bookmark"></i></div><div class="list-title">${esc(sec.sectionName)}</div></div><div class="arrow"><i class="fa-solid fa-chevron-right"></i></div></button>`).join('')}
+        </div>`; return;
+    }
+
+    const sec=cls.sections[selectedSectionIndex];
+    c.innerHTML=`${crumb(`<i class="fa-solid fa-book-open"></i>`,sec.sectionName,'Lessons, Print & Study Notes')}<div class="list">
+        ${sec.lessons.map(les=>{
+            const disabled=!les.githubLink || les.githubLink==='#';
+            return `<div class="list-card">
+                <div class="list-left">
+                    <div class="mini-icon"><i class="fa-solid fa-file-lines"></i></div>
+                    <div class="list-title">${esc(les.title)}</div>
+                </div>
+                <div class="action-group">
+                    <a class="action" href="${disabled?'javascript:void(0)':les.githubLink}" ${disabled?'aria-disabled="true" onclick="return false" style="color:#94a3b8;background:rgba(148,163,184,.07);border-color:rgba(148,163,184,.12)"':''}>
+                        <i class="fa-solid ${disabled?'fa-lock':'fa-book-open'}"></i>${disabled?'Coming Soon':'Read'}
+                    </a>
+                    <a class="print-action" href="${disabled?'javascript:void(0)':les.githubLink}" ${disabled?'onclick="return false" style="opacity:0.5;pointer-events:none"':''} onclick="window.print();return false;" title="Print or Save as PDF">
+                        <i class="fa-solid fa-print"></i> Print / Download
+                    </a>
+                </div>
+            </div>`;
+        }).join('')}
+    </div>`;
+}
+
+function crumb(icon,title,sub){
+    return `<div class="crumb"><div class="crumb-icon">${icon}</div><div><h2>${esc(title)}</h2><p>${esc(sub)}</p></div></div>`;
+}
+
+function filterSubjects(){
+    const q=document.getElementById('searchInput').value.toLowerCase().trim();
+    document.getElementById('clearSearch').style.display=q?'block':'none';
+    const filtered=dscData.filter(sub=>{
+        if(sub.subjectName.toLowerCase().includes(q)) return true;
+        return sub.classes.some(cls=>cls.className.toLowerCase().includes(q) ||
+            cls.sections.some(sec=>sec.sectionName.toLowerCase().includes(q) ||
+                sec.lessons.some(les=>les.title.toLowerCase().includes(q))));
+    });
+    renderApp(filtered);
+}
+
+function clearSearch(){
+    document.getElementById('searchInput').value='';
+    document.getElementById('clearSearch').style.display='none';
+    renderApp(dscData);
+    document.getElementById('searchInput').focus();
+}
+
+function openSubject(index){
+    selectedSubjectIndex=index; selectedClassIndex=null; selectedSectionIndex=null; currentView='classes';
+    history.pushState({view:'classes',sub:index},''); renderApp(); window.scrollTo({top:0,behavior:'smooth'});
+}
+function openClass(index){
+    selectedClassIndex=index; selectedSectionIndex=null; currentView='sections';
+    history.pushState({view:'sections',sub:selectedSubjectIndex,cls:index},''); renderApp(); window.scrollTo({top:0,behavior:'smooth'});
+}
+function openSection(index){
+    selectedSectionIndex=index; currentView='lessons';
+    history.pushState({view:'lessons',sub:selectedSubjectIndex,cls:selectedClassIndex,sec:index},''); renderApp(); window.scrollTo({top:0,behavior:'smooth'});
+}
+function goBack(){history.back()}
+
+window.onpopstate=e=>{
+    if(e.state){
+        currentView=e.state.view;
+        selectedSubjectIndex=e.state.sub??null;
+        selectedClassIndex=e.state.cls??null;
+        selectedSectionIndex=e.state.sec??null;
+    }else{
+        currentView='subjects'; selectedSubjectIndex=selectedClassIndex=selectedSectionIndex=null;
+    }
+    renderApp();
+};
+
+function restoreViewFromHistory(){
+    const state = history.state;
+    if(state && state.view){
+        currentView = state.view;
+        selectedSubjectIndex = state.sub ?? null;
+        selectedClassIndex = state.cls ?? null;
+        selectedSectionIndex = state.sec ?? null;
+    } else {
+        currentView = 'subjects';
+        selectedSubjectIndex = null;
+        selectedClassIndex = null;
+        selectedSectionIndex = null;
+        history.replaceState({view:'subjects'}, '', location.href);
+    }
+    renderApp();
+}
+
+window.onload=()=>{
+    restoreViewFromHistory();
+    if('serviceWorker' in navigator){
+        navigator.serviceWorker.register('./sw.js').catch(err=>console.log('Service Worker:',err));
+    }
+};
+</script>
+</body>
+</html>
